@@ -1,0 +1,330 @@
+.container {
+  display: grid;
+  grid-template-columns: 340px 1fr 380px;
+  height: calc(100vh - 100px);
+  gap: 24px;
+  padding: 24px;
+  background: #f8fafc;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.panel {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+/* Sidebar Panel - NOW GREEN LIKE THE SYSTEM */
+.sidebarPanel {
+  background: #006266;
+  color: white;
+  border: none;
+  box-shadow: 0 20px 40px -10px rgba(0, 98, 102, 0.2);
+}
+
+.mainPanel {
+  flex: 1;
+  background: white;
+  position: relative;
+}
+
+.graphPanel {
+  background: #0f172a;
+  color: white;
+  border: none;
+}
+
+.header {
+  padding: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebarPanel .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.titlesContainer h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.sidebarPanel .titlesContainer h2 {
+  color: white;
+}
+
+.titlesContainer p {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sidebarPanel .titlesContainer p {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.searchWrapper {
+  padding: 0 24px 20px 24px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  background: #f1f5f9;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+  transition: all 0.2s;
+}
+
+.sidebarPanel .searchInput {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebarPanel .searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.searchInput:focus {
+  background: white;
+  border-color: #E84118;
+  box-shadow: 0 0 0 4px rgba(232, 65, 24, 0.05);
+  outline: none;
+}
+
+.sidebarPanel .searchInput:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.notesList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.noteItem {
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noteItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.sidebarPanel .noteItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.activeNoteItem {
+  background: #e6f7f1;
+  border-color: rgba(46, 213, 115, 0.2);
+  box-shadow: 0 4px 12px -2px rgba(46, 213, 115, 0.1);
+}
+
+.sidebarPanel .activeNoteItem {
+  background: white;
+}
+
+.noteTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.sidebarPanel .noteTitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.activeNoteItem .noteTitle {
+  color: #006266;
+}
+
+.sidebarPanel .activeNoteItem .noteTitle {
+  color: #006266;
+  font-weight: 900;
+}
+
+.noteMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.sidebarPanel .tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.activeNoteItem .tag {
+  background: rgba(46, 213, 115, 0.1);
+  color: #006266;
+}
+
+.sidebarPanel .activeNoteItem .tag {
+  background: rgba(0, 98, 102, 0.1);
+  color: #006266;
+}
+
+/* Editor Styling */
+.editorHeader {
+  padding: 32px 48px;
+  background: white;
+  z-index: 10;
+}
+
+.editorTitleInput {
+  font-family: 'Outfit', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #0f172a;
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.editorToolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.editorContent {
+  padding: 0 48px 40px 48px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.editorContent :global(.CodeMirror) {
+  border: none !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+  color: #334155 !important;
+}
+
+.editorContent :global(.editor-toolbar) {
+  border: none !important;
+  border-bottom: 2px solid #f1f5f9 !important;
+  padding: 10px 0 !important;
+  margin-bottom: 30px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+/* Graph Panel */
+.graphHeader {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.graphContainer {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
+
+.aiSidebar {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.aiCard {
+  background: linear-gradient(135deg, #006266 0%, #004D40 100%);
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 98, 102, 0.3);
+}
+
+.aiCard h5 {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addButton {
+  background: white;
+  color: #006266;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.sidebarPanel .addButton {
+  background: white;
+  color: #006266;
+}
+
+.addButton:hover {
+  transform: scale(1.05) rotate(90deg);
+  background: #F0F2F5;
+}
+
+.customScrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.sidebarPanel .customScrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}

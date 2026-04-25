@@ -1,0 +1,173 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f172a;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(10, 61, 98, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(10, 61, 98, 0.4) 0px, transparent 50%);
+  padding: 40px 20px;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 17px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.backButton:hover {
+  color: #7ed6df;
+  transform: translateX(-3px);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.headerText {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.headerText h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+}
+
+.headerText p {
+  font-size: 8px;
+  font-weight: 800;
+  color: #7ed6df;
+  letter-spacing: 3px;
+  opacity: 0.6;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+  margin-left: 5px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 20px;
+  color: rgba(200, 214, 229, 0.3);
+}
+
+.inputWrapper input {
+  width: 100%;
+  background: #eef2f7;
+  border: none;
+  border-radius: 7px;
+  padding: 16px 20px 16px 55px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #2f3640;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.inputWrapper input::placeholder {
+  color: rgba(10, 61, 98, 0.2);
+}
+
+.submitButton {
+  margin-top: 15px;
+  background: #7ed6df;
+  color: #2f3640;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 20px;
+  border-radius: 7px;
+  box-shadow: 0 10px 20px rgba(126, 214, 223, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(126, 214, 223, 0.3);
+  filter: brightness(1.05);
+}
+
+.footer {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.customLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transform: translateY(-10px);
+}
+.errorDiv {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+}

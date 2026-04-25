@@ -1,0 +1,182 @@
+.chatWindow {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 420px;
+  height: 650px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.header {
+  padding: 24px;
+  background: linear-gradient(135deg, #40407a 0%, #706fd3 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.messages {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: radial-gradient(circle at top right, rgba(112, 111, 211, 0.05), transparent);
+}
+
+/* Custom scrollbar */
+.messages::-webkit-scrollbar {
+  width: 4px;
+}
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: rgba(112, 111, 211, 0.2);
+  border-radius: 10px;
+}
+
+.message {
+  max-width: 85%;
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.assistantMessage {
+  align-self: flex-start;
+  background: white;
+  color: #1e293b;
+  border-radius: 4px 20px 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background: #706fd3;
+  color: white;
+  border-radius: 20px 20px 4px 20px;
+  box-shadow: 0 10px 15px -3px rgba(112, 111, 211, 0.3);
+}
+
+.inputArea {
+  padding: 20px 24px;
+  background: white;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  flex: 1;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+  color: #1e293b;
+}
+
+.input:focus {
+  border-color: #706fd3;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(112, 111, 211, 0.1);
+}
+
+.sendButton {
+  background: #706fd3;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sendButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(112, 111, 211, 0.4);
+}
+
+.sendButton:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.triggerButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  background: #706fd3;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 10px 25px rgba(112, 111, 211, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.triggerButton:hover {
+  transform: rotate(5deg) scale(1.1);
+  border-radius: 24px;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}

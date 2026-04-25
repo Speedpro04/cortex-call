@@ -1,0 +1,261 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleInfo h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.titleInfo p {
+  font-size: 8px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.addBtn {
+  background: #0a3d62;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 14px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 20px rgba(10, 61, 98, 0.2);
+  transition: transform 0.3s;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* Filter Bar */
+.filterBar {
+  background: white;
+  padding: 15px 30px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filterGroup span {
+  font-size: 9px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1.5px;
+}
+
+.select {
+  background: #F8FAFC;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #2f3640;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.searchBtn {
+  width: 44px;
+  height: 44px;
+  background: white;
+  color: #535c68;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+/* Agenda Grid */
+.agendaGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 950;
+  color: #2f3640;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Appointment Card */
+.appointmentCard {
+  background: white;
+  padding: 25px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 4px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s;
+}
+
+.appointmentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.06);
+}
+
+.cardLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 140px;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  width: fit-content;
+}
+
+.statusBadge[data-color="green"] { background: #E6F7F1; color: #2ed573; }
+.statusBadge[data-color="orange"] { background: #FFF9E6; color: #ffa502; }
+
+.timeInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2f3640;
+  font-weight: 900;
+}
+
+.timeInfo span {
+  font-size: 15px;
+}
+
+.cardInfo {
+  flex: 1;
+}
+
+.cardInfo h4 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #2f3640;
+  margin-bottom: 5px;
+}
+
+.cardInfo p {
+  font-size: 10px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 2px;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  min-width: 160px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #535c68;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.detailsBtn {
+  background: #F8FAFC;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 9px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Slot Card */
+.slotCard {
+  background: white;
+  padding: 25px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.slotInfo strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.slotInfo p {
+  font-size: 8px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.preencherBtn {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 8px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+
+.preencherBtn:hover {
+  background: #0a3d62;
+  color: white;
+}

@@ -1,0 +1,205 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #041f20; /* Fundo levemente destonado do verde esmeralda */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 98, 102, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(0, 0, 0, 0.5) 0px, transparent 50%);
+  padding: 20px;
+  font-family: inherit;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 440px;
+  background: #006266; /* Mesma cor VERDE do sistema */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px; /* Padrão 13px */
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
+}
+
+.logoContainer {
+  margin-bottom: 40px;
+}
+
+.headerText {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.headerText h2 {
+  font-size: 28px;
+  font-weight: 900; /* Black font weight */
+  color: white;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.headerText p {
+  font-size: 10px;
+  font-weight: 800; /* Bold/Black */
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 3px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputGroup label {
+  font-size: 11px;
+  font-weight: 900; /* Black */
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.inputWrapper input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px; /* Padrão 13px */
+  padding: 18px 20px 18px 55px;
+  font-family: inherit;
+  font-size: 15px;
+  color: white;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputWrapper input:focus {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 159, 67, 0.5);
+}
+
+.inputWrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.passwordToggle:hover {
+  color: white;
+}
+
+.submitButton {
+  margin-top: 10px;
+  background: #ff9f43; /* Orange Solara */
+  color: white; /* Changed to white for better contrast with orange */
+  font-weight: 900; /* Black */
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 20px;
+  border: none;
+  border-radius: 13px; /* Padrão 13px */
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 159, 67, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(255, 159, 67, 0.3);
+  filter: brightness(1.1);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.extraLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 800; /* Bold */
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  color: white;
+}
+
+.divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 9px;
+  font-weight: 900; /* Black */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.errorDiv {
+  width: 100%;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  padding: 15px;
+  border-radius: 13px; /* Padrão 13px */
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+}

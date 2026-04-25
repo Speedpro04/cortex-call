@@ -1,0 +1,220 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleSection h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.titleSection p {
+  font-size: 11px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+}
+
+.dateFilter {
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  font-size: 13px;
+  font-weight: 800;
+  color: #2f3640;
+}
+
+/* KPI Cards */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.kpiCard {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border-left: 4px solid transparent;
+}
+
+.kpiCard[data-color="green"] { border-left-color: #2ed573; }
+.kpiCard[data-color="blue"] { border-left-color: #006266; }
+.kpiCard[data-color="orange"] { border-left-color: #ff9f43; }
+.kpiCard[data-color="red"] { border-left-color: #ff4757; }
+
+.kpiLabel {
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 2px;
+}
+
+.kpiValue {
+  font-size: 28px;
+  font-weight: 900;
+  color: #2f3640;
+  line-height: 1;
+}
+
+.kpiTrend {
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.trendUp { color: #2ed573; }
+.trendDown { color: #ff4757; }
+
+/* Main Charts Section */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.chartCard {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.chartHeader h3 {
+  font-size: 14px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 1px;
+}
+
+/* Simulated Chart Visualization */
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #F0F2F5;
+}
+
+.barWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar {
+  width: 30px;
+  background: #006266;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+  position: relative;
+}
+
+.bar:hover::after {
+  content: attr(data-value);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 900;
+  color: #006266;
+}
+
+.barLabel {
+  font-size: 10px;
+  font-weight: 800;
+  color: #535c68;
+}
+
+/* Secondary Lists */
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rankingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: #F8FAFC;
+  border-radius: 10px;
+}
+
+.rankingInfo h4 {
+  font-size: 13px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.rankingInfo p {
+  font-size: 10px;
+  font-weight: 800;
+  color: #535c68;
+  margin-top: 2px;
+}
+
+.rankingValue {
+  font-size: 14px;
+  font-weight: 900;
+  color: #006266;
+}
+
+.efficiencyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.effTile {
+  background: #F8FAFC;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.effTile h5 {
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.effTile strong {
+  font-size: 20px;
+  font-weight: 900;
+  color: #2f3640;
+}

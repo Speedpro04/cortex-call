@@ -1,0 +1,402 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* IA Alert Banner */
+.alertBanner {
+  background: #006266;
+  border-radius: 10px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 40px 100px -20px rgba(0, 98, 102, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.alertIcon {
+  width: 50px;
+  height: 50px;
+  background: #ff7675;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alertText {
+  flex: 1;
+  color: white;
+}
+
+.alertText strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: #ff7675;
+  margin-bottom: 8px;
+}
+
+.alertText p {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.alertText p span {
+  font-weight: 900;
+  color: white;
+}
+
+.alertBtn {
+  background: #ff7675;
+  color: white;
+  padding: 16px 30px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+
+.alertBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 118, 117, 0.3);
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 4px solid #2f3640;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.statIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIcon[data-color="orange"] { background: rgba(255, 159, 67, 0.1); color: #ff9f43; }
+.statIcon[data-color="blue"] { background: rgba(10, 61, 98, 0.1); color: #2f3640; }
+.statIcon[data-color="green"] { background: rgba(46, 213, 115, 0.1); color: #2ed573; }
+.statIcon[data-color="purple"] { background: rgba(162, 155, 254, 0.1); color: #6c5ce7; }
+.statIcon[data-color="coral"] { background: rgba(255, 118, 117, 0.1); color: #ff7675; }
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.statInfo h3 {
+  font-size: 21px;
+  font-weight: 900;
+  color: #2f3640;
+  line-height: 1;
+}
+
+.statSub {
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+/* Columns Grid */
+.columnsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.columnHeader h3 {
+  font-size: 11px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.countBadge {
+  background: white;
+  color: #2f3640;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.columnContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Appointment Card */
+.appointmentCard {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid #2f3640;
+  border-top: 1px solid rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+  border-right: 1px solid rgba(0, 0, 0, 0.02);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.appointmentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.riskBadge {
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.riskBadge[data-risk="baixo"] { background: #E6F7F1; color: #2ed573; }
+.riskBadge[data-risk="médio"] { background: #FFF9E6; color: #ffa502; }
+.riskBadge[data-risk="alto"] { background: #FFE6E6; color: #ff4757; }
+
+.timeInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #535c68;
+}
+
+.timeInfo span {
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.cardBody h4 {
+  font-size: 18px;
+  font-weight: 900;
+  color: #2f3640;
+  margin-bottom: 4px;
+}
+
+.cardBody p {
+  font-size: 13px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 1px;
+}
+
+.cardFooter {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #F0F2F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.messageIcon {
+  width: 32px;
+  height: 32px;
+  background: #F8FAFC;
+  color: #535c68;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusBtn {
+  background: #2ed573;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.statusBtn:hover {
+  filter: brightness(1.1);
+}
+
+/* Solara AI Floating Chat */
+.aiChatContainer {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 340px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chatHeader {
+  background: #006266;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.chatHeaderInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.chatLogoImage {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.chatActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.chatHeader strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.chatHeader span {
+  font-size: 7px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+}
+
+.chatBody {
+  padding: 25px;
+  height: 350px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.chatBody p {
+  background: #F8FAFC;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #2f3640;
+  font-weight: 500;
+  border-bottom-left-radius: 4px;
+}
+
+.chatInput {
+  padding: 20px;
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatInput input {
+  flex: 1;
+  background: #F8FAFC;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
+
+.sendIcon {
+  width: 36px;
+  height: 36px;
+  background: #ff9f43;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

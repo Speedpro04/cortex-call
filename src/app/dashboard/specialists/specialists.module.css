@@ -1,0 +1,187 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleRow h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.titleRow p {
+  font-size: 11px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.newBtn {
+  background: #006266;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(0, 98, 102, 0.25);
+  transition: transform 0.2s;
+}
+
+.newBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* KPI Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-left: 4px solid #2f3640;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIcon[data-color="teal"] { background: rgba(0,98,102,0.08); color: #006266; }
+.statIcon[data-color="blue"] { background: rgba(10,61,98,0.08); color: #2f3640; }
+.statIcon[data-color="green"] { background: rgba(46,213,115,0.1); color: #2ed573; }
+.statIcon[data-color="purple"] { background: rgba(162, 155, 254, 0.1); color: #6c5ce7; }
+
+.statInfo p {
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.statInfo h3 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+/* Main Table Card */
+.tableCard {
+  background: white;
+  border-radius: 10px;
+  border-left: 4px solid #2f3640;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.tableHeader {
+  padding: 30px 40px;
+  border-bottom: 1px solid #F0F2F5;
+}
+
+.tableHeader h3 {
+  font-size: 14px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 20px 40px;
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 1.5px;
+  background: #F8FAFC;
+}
+
+.table td {
+  padding: 25px 40px;
+  font-size: 14px;
+  color: #2f3640;
+  border-bottom: 1px solid #F0F2F5;
+}
+
+.specialistInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.specialistInfo strong {
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.specialistInfo span {
+  font-size: 11px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 1px;
+}
+
+.statusBadge {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.active { background: #E6F7F1; color: #2ed573; }
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actionBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8FAFC;
+  color: #535c68;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background: #E6EBF0;
+  color: #006266;
+}

@@ -1,0 +1,41 @@
+cores
+
+fundo do sistema:branco
+
+contorno do cards: #1e272e
+
+cor de fundo dos cardas:#d2dae2
+
+cor do texto principal:#1e272e
+
+cor de texto secundario: #485460
+
+cores para uso interno do sistema: #f53b57, #ffc048, #05c46b
+
+
+cores LP
+
+Header: #4bcffa
+
+primeira dobra:#dfe6e9
+
+segunda dobra: branco  
+
+rodapé:#2d3436
+
+pagina login 
+
+fundo : #b2bec3
+
+Card do login:  #4bcffa
+
+
+contorno do cards: #1e272e
+
+cor de fundo dos cardas:#d2dae2
+
+cor do texto principal:#1e272e
+
+cor de texto secundario: #485460
+
+cores para uso interno do sistema: #f53b57, #ffc048, #05c46b

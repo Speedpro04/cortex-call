@@ -1,0 +1,335 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleInfo h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.titleInfo p {
+  font-size: 8px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.hideBtn {
+  background: white;
+  color: #2f3640;
+  padding: 12px 24px;
+  border-radius: 14px;
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.statCard {
+  background: white;
+  padding: 40px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 4px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.statInfo p {
+  font-size: 10px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.statInfo h3 {
+  font-size: 32px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: -1px;
+}
+
+.trend {
+  font-size: 10px;
+  font-weight: 900;
+  color: #2ed573;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sub {
+  font-size: 10px;
+  font-weight: 800;
+  color: #2f3640;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon.teal { background: #E6F7F7; color: #7ed6df; }
+.icon.blue { background: #E6EBF0; color: #2f3640; }
+.icon.green { background: #E6F7F1; color: #2ed573; }
+
+/* Main Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+}
+
+.invoicesCol {
+  background: white;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.sectionHeader {
+  padding: 30px 40px;
+  border-bottom: 1px solid #F0F2F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 950;
+  color: #2f3640;
+  letter-spacing: 2px;
+}
+
+.filterSelect {
+  font-size: 9px;
+  font-weight: 800;
+  color: #2f3640;
+  background: #F8FAFC;
+  padding: 8px 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tableWrapper {
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 20px;
+  font-size: 9px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 2px;
+}
+
+.table td {
+  padding: 24px 20px;
+  font-size: 13px;
+  color: #2f3640;
+}
+
+.id { font-weight: 500; color: #535c68 !important; }
+.patient { font-weight: 900; }
+.val { font-weight: 900; }
+.date { font-weight: 500; color: #535c68; }
+
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  width: fit-content;
+}
+
+.statusBadge[data-status="pago"] { background: #E6F7F1; color: #2ed573; }
+.statusBadge[data-status="pendente"] { background: #FFF9E6; color: #ffa502; }
+.statusBadge[data-status="atrasado"] { background: #FFE6E6; color: #ff4757; }
+
+/* Side Column */
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.planCard {
+  background: white;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.05);
+}
+
+.planHeader {
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.planHeader h3 {
+  font-size: 8px;
+  font-weight: 900;
+  color: #535c68;
+  letter-spacing: 2px;
+}
+
+.planBody {
+  padding: 40px;
+  padding-top: 0;
+  text-align: center;
+}
+
+.planLabel {
+  background: #0a3d62;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.planPrice {
+  font-size: 48px;
+  font-weight: 900;
+  color: #2f3640;
+  letter-spacing: -2px;
+  margin-bottom: 40px;
+}
+
+.planPrice::before {
+  content: 'R$ ';
+  font-size: 24px;
+  letter-spacing: 0;
+}
+
+.planStats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.planStatItem p {
+  font-size: 8px;
+  font-weight: 800;
+  color: #535c68;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.planStatItem strong {
+  font-size: 11px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.upgradeBtn {
+  width: 100%;
+  background: #0a3d62;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 15px 30px rgba(10, 61, 98, 0.3);
+}
+
+.historyCard {
+  background: white;
+  padding: 30px;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.historyCard h3 {
+  font-size: 10px;
+  font-weight: 950;
+  color: #2f3640;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyInfo strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 900;
+  color: #2f3640;
+}
+
+.historyInfo p {
+  font-size: 9px;
+  font-weight: 500;
+  color: #535c68;
+  margin-top: 4px;
+}
+
+.historyStatus {
+  background: #E6F7F1;
+  color: #2ed573;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}

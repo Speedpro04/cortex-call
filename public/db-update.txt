@@ -1,0 +1,77 @@
+-- SQL para forçar atualização do Schema
+
+-- Se patients existe, mas faltam colunas:
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS nome_completo TEXT;
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS email TEXT;
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS temperatura_lead TEXT DEFAULT 'novo';
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS origem TEXT DEFAULT 'whatsapp';
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS ultima_consulta TIMESTAMP WITH TIME ZONE;
+ALTER TABLE IF EXISTS public.patients ADD COLUMN IF NOT EXISTS dados_extras JSONB DEFAULT '{}'::jsonb;
+
+-- Criação da Tabela PLANS (se não existir)
+CREATE TABLE IF NOT EXISTS public.plans (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    nome TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
+    preco_centavos INTEGER NOT NULL,
+    max_especialistas INTEGER NOT NULL,
+    features JSONB DEFAULT '[]'::jsonb,
+    ativo BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Insert dos dados de Plans (ignora se houver conflito de slug)
+INSERT INTO public.plans (nome, slug, preco_centavos, max_especialistas, features) VALUES
+('2 Especialistas', 'plan-2-especialistas', 14700, 2, '["Até 2 Especialistas", "Solara Connect IA"]')
+ON CONFLICT (slug) DO NOTHING;
+
+-- Criação da Tabela RAG (se não existir)
+CREATE TABLE IF NOT EXISTS public.rag_knowledge_base (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    topic TEXT NOT NULL,
+    keywords TEXT[] NOT NULL,
+    context TEXT NOT NULL,
+    priority_level INTEGER DEFAULT 1,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Insert dos dados de RAG
+INSERT INTO public.rag_knowledge_base (topic, keywords, context) VALUES
+('Atraso Pagamento', ARRAY['atraso', 'boleto', 'pagar'], 'Oferecer link de pagamento.')
+ON CONFLICT DO NOTHING; -- assumindo id auto, pode duplicar. Pra evitar, melhor deixar só tabela.
+
+-- Tabelas de Campanhas (MIGRATION 0003)
+CREATE TABLE IF NOT EXISTS public.campaigns (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    clinic_id UUID NOT NULL REFERENCES public.clinics(id) ON DELETE CASCADE,
+    nome TEXT NOT NULL,
+    tipo TEXT NOT NULL DEFAULT 'recovery',
+    status TEXT NOT NULL DEFAULT 'active',
+    canal TEXT NOT NULL DEFAULT 'whatsapp',
+    mensagem_template TEXT NOT NULL,
+    filtro_temperatura TEXT[] DEFAULT ARRAY['frio', 'perdido'],
+    filtro_dias_sem_consulta INTEGER DEFAULT 90,
+    sequencia JSONB DEFAULT '[]'::jsonb,
+    total_pacientes INTEGER DEFAULT 0,
+    total_enviados INTEGER DEFAULT 0,
+    total_retornos INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.campaign_messages (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    campaign_id UUID NOT NULL REFERENCES public.campaigns(id) ON DELETE CASCADE,
+    clinic_id UUID NOT NULL REFERENCES public.clinics(id) ON DELETE CASCADE,
+    patient_id UUID NOT NULL REFERENCES public.patients(id) ON DELETE CASCADE,
+    mensagem_enviada TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'sent',
+    step_number INTEGER DEFAULT 1,
+    resposta_paciente TEXT,
+    enviado_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    respondido_at TIMESTAMP WITH TIME ZONE
+);
+
+NOTIFY pgrst, 'reload schema';
