@@ -6,8 +6,8 @@ export default function ConversationsPage() {
   const chats = [
     { id: 1, name: 'Marcos Vinícius', lastMsg: 'Temos um horário disponível amanhã?', time: '14:20', active: true },
     { id: 2, name: 'Helena Costa', lastMsg: 'Obrigada pelo atendimento!', time: '11:05', active: false },
-    { id: 3, name: 'Sérgio Ramos', lastMsg: 'Pode confirmar minha limpeza?', time: 'Ontem', active: false },
-    { id: 4, name: 'Clínica Sorriso', lastMsg: 'Campanha de retorno enviada.', time: 'Ontem', active: false },
+    { id: 3, name: 'Sérgio Ramos', lastMsg: 'Pode confirmar minha consulta?', time: 'Ontem', active: false },
+    { id: 4, name: 'Clínica Médica', lastMsg: 'Campanha de retorno enviada.', time: 'Ontem', active: false },
   ];
 
   const stats = [

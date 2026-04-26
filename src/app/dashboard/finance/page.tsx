@@ -113,7 +113,7 @@ export default function FinancePage() {
                 
                 <div className={styles.planStats}>
                   <div className={styles.planStatItem}>
-                    <p>DENTISTAS</p>
+                    <p>MÉDICOS</p>
                     <strong>2 de 4</strong>
                   </div>
                   <div className={styles.planStatItem}>

@@ -7,10 +7,10 @@ import styles from './specialists.module.css';
 
 export default function SpecialistsPage() {
   const specialists = [
-    { id: 1, name: 'Dr. Roberto Cardoso', specialty: 'Implantodontia', status: 'ATIVO', patients: 142, rating: 4.9 },
-    { id: 2, name: 'Dra. Mara Silveira', specialty: 'Ortodontia', status: 'ATIVO', patients: 98, rating: 4.8 },
+    { id: 1, name: 'Dr. Roberto Cardoso', specialty: 'Cardiologia', status: 'ATIVO', patients: 142, rating: 4.9 },
+    { id: 2, name: 'Dra. Mara Silveira', specialty: 'Dermatologia', status: 'ATIVO', patients: 98, rating: 4.8 },
     { id: 3, name: 'Dr. Henrique Neto', specialty: 'Clínico Geral', status: 'ATIVO', patients: 210, rating: 5.0 },
-    { id: 4, name: 'Dra. Alice Ferreira', specialty: 'Odontopediatria', status: 'ATIVO', patients: 65, rating: 4.7 },
+    { id: 4, name: 'Dra. Alice Ferreira', specialty: 'Pediatria', status: 'ATIVO', patients: 65, rating: 4.7 },
   ];
 
   const stats = [
@@ -69,7 +69,7 @@ export default function SpecialistsPage() {
                     <td>
                       <div className={styles.specialistInfo}>
                         <strong>{s.name}</strong>
-                        <span>CONSELHO: CRO-SP {12345 + s.id}</span>
+                        <span>CONSELHO: CRM-SP {12345 + s.id}</span>
                       </div>
                     </td>
                     <td>{s.specialty}</td>

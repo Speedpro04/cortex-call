@@ -79,8 +79,8 @@ export default function LandingPage() {
             <div className="relative group" style={{ transform: 'translateY(0px)' }}>
               <div className="relative w-full h-[450px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
                 <img 
-                  src="/hero-image.png" 
-                  alt="Dentista e Paciente" 
+                  src="/medical-hero.png" 
+                  alt="Cortex Call - Equipe Médica" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#006266]/40 to-transparent"></div>
@@ -99,7 +99,8 @@ export default function LandingPage() {
                 display: 'flex', 
                 alignItems: 'center', 
                 gap: '12px',
-                zIndex: 20
+                zIndex: 20,
+                border: '1px solid #485460'
               }}>
                 <div style={{ backgroundColor: 'rgba(249, 115, 22, 0.1)', padding: '8px', borderRadius: '12px' }}>
                   <Activity style={{ color: '#ea580c', width: '24px', height: '24px' }} />
@@ -123,7 +124,8 @@ export default function LandingPage() {
                 display: 'flex', 
                 alignItems: 'center', 
                 gap: '12px',
-                zIndex: 20
+                zIndex: 20,
+                border: '1px solid #485460'
               }}>
                 <div style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', padding: '8px', borderRadius: '12px' }}>
                   <Zap style={{ color: '#059669', width: '24px', height: '24px' }} />
@@ -147,7 +149,8 @@ export default function LandingPage() {
                 display: 'flex', 
                 alignItems: 'center', 
                 gap: '12px',
-                zIndex: 20
+                zIndex: 20,
+                border: '1px solid #485460'
               }}>
                 <div style={{ backgroundColor: 'rgba(59, 130, 246, 0.1)', padding: '8px', borderRadius: '12px' }}>
                   <MessageSquare style={{ color: '#2563eb', width: '24px', height: '24px' }} />
@@ -167,16 +170,16 @@ export default function LandingPage() {
         <div className={styles.inner}>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionBadge}>DEMONSTRAÇÃO</div>
-            <h2>Gestão inteligente com Cortex Connect.</h2>
-            <p>Tudo o que sua clínica odontológica precisa para automatizar o relacionamento com o padrão Cortex Connect.</p>
+            <h2>Gestão inteligente com Cortex Call.</h2>
+            <p>Tudo o que sua clínica médica precisa para automatizar o relacionamento com o padrão Cortex Call.</p>
           </div>
 
           <div className={styles.showcaseGrid}>
             <div className={styles.showcaseCard}>
-              <img src="/showcase-1.png" alt="Painel Cortex Connect" />
+              <img src="/showcase-1.png" alt="Painel Cortex Call" />
               <div className={styles.cardInfo}>
                 <h3>Painel de Recuperação</h3>
-                <p>Visualize todos os pacientes prioritários com o score de risco exclusivo Cortex Connect.</p>
+                <p>Visualize todos os pacientes prioritários com o score de risco exclusivo Cortex Call.</p>
               </div>
             </div>
             
@@ -201,9 +204,9 @@ export default function LandingPage() {
 
           <div className={styles.pricingGrid}>
             {[
-              { name: '2 ESPECIALISTAS', slug: 'plan-2-especialistas', price: '147', features: ['Até 2 Especialistas', 'Cortex Connect IA', 'Otimização de Agenda', 'Suporte WhatsApp'], color: 'blue' },
-              { name: '3 A 5 ESPECIALISTAS', slug: 'plan-3-5-especialistas', price: '257', features: ['Até 5 Especialistas', 'Cortex Connect Pro', 'WhatsApp Cortex Ilimitado', 'Suporte Prioritário'], hot: true, color: 'teal' },
-              { name: '5 A 8 ESPECIALISTAS', slug: 'plan-5-8-especialistas', price: '367', features: ['Até 8 Especialistas', 'Cortex Connect Elite', 'Gestor de Contas', 'Integração Customizada'], color: 'charcoal' }
+              { name: '2 ESPECIALISTAS', slug: 'plan-2-especialistas', price: '147', features: ['Até 2 Especialistas', 'Cortex Call IA', 'Otimização de Agenda', 'Suporte WhatsApp'], color: 'blue' },
+              { name: '3 A 5 ESPECIALISTAS', slug: 'plan-3-5-especialistas', price: '257', features: ['Até 5 Especialistas', 'Cortex Call Pro', 'WhatsApp Cortex Ilimitado', 'Suporte Prioritário'], hot: true, color: 'teal' },
+              { name: '5 A 8 ESPECIALISTAS', slug: 'plan-5-8-especialistas', price: '367', features: ['Até 8 Especialistas', 'Cortex Call Elite', 'Gestor de Contas', 'Integração Customizada'], color: 'charcoal' }
             ].map((plan, i) => (
               <div key={i} className={`${styles.pricingCard} ${plan.hot ? styles.hotPlan : ''}`}>
                 {plan.hot && <span className={styles.hotBadge}>MAIS POPULAR</span>}
@@ -235,9 +238,9 @@ export default function LandingPage() {
           </div>
           <div className={styles.testimonialsGrid}>
             {[
-              { name: 'Dr. Roberto Silva', role: 'Clínica Sorriso Real', text: 'O Cortex Connect recuperou mais de 40 pacientes no primeiro mês. O ROI foi imediato.' },
-              { name: 'Dra. Ana Paula', role: 'Odonto Clean', text: 'O processo de automação via WhatsApp do Cortex Connect é impecável. Economizamos horas.' },
-              { name: 'Dr. Carlos Lima', role: 'Lima Odontologia', text: 'A interface do Cortex Connect é muito intuitiva. Meus assistentes adoram.' }
+              { name: 'Dr. Roberto Silva', role: 'Clínica Sorriso Real', text: 'O Cortex Call recuperou mais de 40 pacientes no primeiro mês. O ROI foi imediato.' },
+              { name: 'Dra. Ana Paula', role: 'Odonto Clean', text: 'O processo de automação via WhatsApp do Cortex Call é impecável. Economizamos horas.' },
+              { name: 'Dr. Carlos Lima', role: 'Médico Diretor', text: 'A interface do Cortex Call é muito intuitiva. Médicos e secretárias adoream a facilidade do Cortex Call.' }
             ].map((t, i) => (
               <div key={i} className={styles.testimonialCard}>
                 <div className={styles.testimonialStars}>★★★★★</div>
@@ -261,9 +264,9 @@ export default function LandingPage() {
           </div>
           <div className={styles.faqGrid}>
             {[
-              { name: 'Como o Cortex Connect identifica os pacientes?', a: 'O Cortex Connect analisa o histórico de consultas para identificar quem não retornou para a revisão.' },
-              { name: 'Preciso de um número de WhatsApp novo?', a: 'Não, você pode conectar o número oficial do seu consultório diretamente no Cortex Connect.' },
-              { name: 'É difícil de configurar?', a: 'Em menos de 10 minutos o Cortex Connect já está pronto para recuperar seus pacientes.' }
+              { name: 'Como o Cortex Call identifica os pacientes?', a: 'O Cortex Call analisa o histórico de consultas para identificar quem não retornou para a revisão.' },
+              { name: 'Preciso de um número de WhatsApp novo?', a: 'Não, você pode conectar o número oficial do seu consultório diretamente no Cortex Call.' },
+              { name: 'É difícil de configurar?', a: 'Em menos de 10 minutos o Cortex Call já está pronto para recuperar seus pacientes.' }
             ].map((item, i) => (
               <div key={i} className={styles.faqItem}>
                 <h4>{item.name}</h4>
@@ -282,7 +285,7 @@ export default function LandingPage() {
               <div className="flex items-center gap-3 mb-6">
                 <Logo />
               </div>
-              <p>Acelerando o crescimento de clínicas odontológicas através da inteligência artificial.</p>
+              <p>Acelerando o crescimento de clínicas médicas através da inteligência artificial.</p>
             </div>
             <div className={styles.footerLinks}>
               <h4>PRODUTO</h4>
@@ -297,7 +300,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className={styles.footerBottom}>
-            <p>© 2026 Cortex Connect. Todos os direitos reservados.</p>
+            <p>© 2026 Cortex Call. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

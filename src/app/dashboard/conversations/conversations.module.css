@@ -19,16 +19,18 @@
 }
 
 .newBtn {
-  background: #006266;
+  background: var(--status-danger);
   color: white;
   padding: 14px 28px;
-  border-radius: 10px;
+  border-radius: var(--radius-default);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 /* KPI Grid */
@@ -39,14 +41,15 @@
 }
 
 .statCard {
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   gap: 18px;
-  border-left: 4px solid #2f3640;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .statIcon {
@@ -80,10 +83,11 @@
 .chatLayout {
   display: grid;
   grid-template-columns: 350px 1fr;
-  background: white;
-  border-radius: 10px;
-  border-left: 4px solid #2f3640;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  background: var(--card-bg);
+  border-radius: var(--radius-default);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
   overflow: hidden;
   flex: 1;
 }
@@ -220,7 +224,7 @@
 }
 
 .sent {
-  background: #006266;
+  background: var(--status-danger);
   color: white;
   align-self: flex-end;
   border-bottom-right-radius: 4px;
@@ -244,12 +248,13 @@
 }
 
 .sendBtn {
-  background: #ff9f43;
+  background: var(--status-danger);
   color: white;
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--card-border);
 }

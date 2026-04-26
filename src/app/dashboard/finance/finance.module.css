@@ -48,14 +48,14 @@
 }
 
 .statCard {
-  background: white;
+  background: var(--card-bg);
   padding: 40px;
-  border-radius: 32px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 4px solid white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .statInfo p {
@@ -112,10 +112,11 @@
 }
 
 .invoicesCol {
-  background: white;
-  border-radius: 40px;
+  background: var(--card-bg);
+  border-radius: var(--radius-default);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .sectionHeader {
@@ -195,10 +196,11 @@
 }
 
 .planCard {
-  background: white;
-  border-radius: 40px;
+  background: var(--card-bg);
+  border-radius: var(--radius-default);
   overflow: hidden;
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .planHeader {
@@ -269,10 +271,10 @@
 
 .upgradeBtn {
   width: 100%;
-  background: #0a3d62;
+  background: var(--status-danger);
   color: white;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: var(--radius-default);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 2px;
@@ -280,7 +282,8 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 15px 30px rgba(10, 61, 98, 0.3);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .historyCard {

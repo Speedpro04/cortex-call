@@ -26,17 +26,18 @@
 }
 
 .addBtn {
-  background: #0a3d62;
+  background: var(--status-danger);
   color: white;
   padding: 15px 30px;
-  border-radius: 14px;
+  border-radius: var(--radius-default);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 20px rgba(10, 61, 98, 0.2);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
   transition: transform 0.3s;
 }
 
@@ -119,14 +120,14 @@
 
 /* Appointment Card */
 .appointmentCard {
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
-  border-radius: 32px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   gap: 30px;
-  border: 4px solid white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
   transition: transform 0.3s;
 }
 
@@ -220,13 +221,14 @@
 
 /* Slot Card */
 .slotCard {
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
-  border-radius: 28px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .slotInfo strong {

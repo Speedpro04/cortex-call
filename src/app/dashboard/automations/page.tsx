@@ -18,25 +18,25 @@ export default function CampaignsPage() {
   const campaigns = [
     { 
       id: 1, 
-      title: 'REVISÃO ODONTOLÓGICA', 
+      title: 'RECHECK MÉDICO', 
       canal: 'WhatsApp', 
-      desc: 'O paciente não visita há mais de 6 meses sem retorno. Alta probabilidade de engajamento.',
+      desc: 'O paciente não visita a clínica há mais de 6 meses para acompanhamento.',
       patients: '12 PACIENTES SELECIONADOS PELA IA',
       icon: <MessageSquare size={18} />
     },
     { 
       id: 2, 
-      title: 'LIMPEZA PREVENTIVA', 
-      canal: 'SMS', 
-      desc: 'Pacientes com limpeza anual atrasada. Ideal para início de trimestre.',
+      title: 'CHECK-UP ANUAL', 
+      canal: 'WhatsApp', 
+      desc: 'Pacientes com exames de rotina atrasados. Ideal para prevenção.',
       patients: '8 PACIENTES SELECIONADOS PELA IA',
       icon: <MessageSquare size={18} />
     },
     { 
       id: 3, 
-      title: 'CLAREAMENTO / ESTÉTICA', 
+      title: 'EXAMES / PÓS-CONSULTA', 
       canal: 'WhatsApp', 
-      desc: 'Pacientes que demonstraram interesse em procedimentos estéticos anteriormente.',
+      desc: 'Pacientes que realizaram consultas recentemente e precisam de lembrete para exames.',
       patients: '6 PACIENTES SELECIONADOS PELA IA',
       icon: <Sparkles size={18} />
     },

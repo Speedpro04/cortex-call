@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Sparkles, Bell, Search, Settings } from 'lucide-react';
-import Logo, { PowerSun } from '../Logo/Logo';
+import Logo from '../Logo/Logo';
 import styles from './header.module.css';
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ export default function Header({ onOpenChat }: HeaderProps) {
       <div className={styles.left}>
         <div className={styles.titleSection}>
           <h1>Cortex Call</h1>
-          <p>GESTÃO INTELIGENTE PARA CLÍNICAS ODONTOLÓGICAS</p>
+          <p>GESTÃO INTELIGENTE PARA CLÍNICAS MÉDICAS</p>
         </div>
       </div>
 
@@ -34,7 +34,7 @@ export default function Header({ onOpenChat }: HeaderProps) {
         </div>
         
         <button className={styles.solaraBtn} onClick={onOpenChat} title="SOLARA AI">
-          <PowerSun size={32} />
+          <Sparkles size={24} />
         </button>
 
         <div className={styles.userBadge}>

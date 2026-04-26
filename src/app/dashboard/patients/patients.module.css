@@ -26,17 +26,18 @@
 }
 
 .newBtn {
-  background: #006266;
+  background: var(--status-danger);
   color: white;
   padding: 14px 28px;
-  border-radius: 10px;
+  border-radius: var(--radius-default);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 25px rgba(0, 98, 102, 0.25);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
   transition: transform 0.2s;
 }
 
@@ -52,14 +53,15 @@
 }
 
 .statCard {
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--radius-default);
   display: flex;
   align-items: center;
   gap: 18px;
-  border-left: 4px solid #2f3640;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
 }
 
 .statIcon {
@@ -92,10 +94,11 @@
 
 /* Main Table Card */
 .tableCard {
-  background: white;
-  border-radius: 10px;
-  border-left: 4px solid #2f3640;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  background: var(--card-bg);
+  border-radius: var(--radius-default);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--card-border);
+  box-shadow: var(--shadow-premium);
   overflow: hidden;
 }
 

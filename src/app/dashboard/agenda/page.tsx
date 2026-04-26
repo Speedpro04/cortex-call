@@ -125,7 +125,7 @@ export default function AgendaPage() {
           <div className={styles.filterGroup}>
             <span>FILTROS:</span>
             <div className={styles.select}>
-              {specialists.length > 0 ? 'FILTRAR POR DENTISTA' : 'TODOS OS DENTISTAS'} <ChevronDown size={14} />
+              {specialists.length > 0 ? 'FILTRAR POR MÉDICO' : 'TODOS OS MÉDICOS'} <ChevronDown size={14} />
             </div>
             <div className={styles.select}>
               TODOS OS PROCEDIMENTOS <ChevronDown size={14} />
@@ -212,7 +212,7 @@ export default function AgendaPage() {
                 <input 
                   type="text" 
                   className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium"
-                  placeholder="Ex: Limpeza, Canal..."
+                  placeholder="Ex: Consulta, Exame..."
                   value={form.procedure}
                   onChange={e => setForm({...form, procedure: e.target.value})}
                 />
@@ -241,7 +241,7 @@ export default function AgendaPage() {
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Dentista Responsável</label>
+                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Médico Responsável</label>
                 <select 
                   className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium bg-white"
                   value={form.specialist_id}

@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
 import { Sparkles, Activity, Clock, Users, ArrowRight, Zap, TrendingUp, AlertCircle, MessageSquare } from 'lucide-react';
-import { PowerSun } from '@/components/Logo/Logo';
 import styles from './overview.module.css';
 
 export default function DashboardOverview() {
@@ -34,7 +33,7 @@ export default function DashboardOverview() {
         {/* IA Alert Banner */}
         <div className={styles.alertBanner}>
           <div className={styles.alertIcon}>
-            <PowerSun size={32} />
+            <Sparkles size={32} />
           </div>
           <div className={styles.alertText}>
             <strong>ALERTA DA IA — AÇÃO RECOMENDADA</strong>

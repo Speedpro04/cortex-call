@@ -2,16 +2,19 @@
   display: flex;
   min-height: 100vh;
   background-color: #F0F2F5;
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .wrapper {
   flex: 1;
-  margin-left: 280px;
   display: flex;
   flex-direction: column;
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  background: white;
 }
 
 .content {

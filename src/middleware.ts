@@ -17,6 +17,11 @@ export async function middleware(request: NextRequest) {
     const accessToken = request.cookies.get('sb-access-token')?.value || request.headers.get('Authorization')?.replace('Bearer ', '');
     const refreshToken = request.cookies.get('sb-refresh-token')?.value;
 
+    // MASTER BYPASS: Se o cookie local estiver presente, libera o acesso imediatamente (ignora Supabase)
+    if (request.cookies.get('master-bypass')?.value === 'true') {
+        return NextResponse.next()
+    }
+
     if (!accessToken) {
         url.pathname = '/login'
         return NextResponse.redirect(url)

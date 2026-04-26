@@ -1,15 +1,13 @@
 .sidebar {
   width: 280px;
   height: 100vh;
-  background: linear-gradient(180deg, #006266 0%, #004D40 100%);
-  color: white;
+  background: #ffffff;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
-  position: fixed;
-  left: 0;
-  top: 0;
+  position: relative;
   z-index: 100;
-  box-shadow: 20px 0 60px -15px rgba(0, 98, 102, 0.4);
+  border-right: 1px solid var(--card-border);
 }
 
 .topSection {
@@ -41,13 +39,13 @@
   align-items: center;
   gap: 16px;
   padding: 14px 20px;
-  border-radius: 14px;
-  color: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-default);
+  color: var(--text-secondary);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s;
   border: 1px solid transparent;
 }
 
@@ -66,10 +64,9 @@
 }
 
 .active {
-  background: white; /* Contrast active for Green sidebar */
-  color: #006266 !important;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  color: var(--text-primary) !important;
+  border: 1px solid var(--card-border);
 }
 
 .active svg {
