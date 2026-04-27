@@ -7,7 +7,7 @@
   flex-direction: column;
   position: relative;
   z-index: 100;
-  border-right: 1px solid var(--card-border);
+  border-right: 2px solid #353b48;
 }
 
 .topSection {
@@ -30,7 +30,7 @@
   width: 4px;
 }
 .nav::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 10px;
 }
 
@@ -50,60 +50,60 @@
 }
 
 .navItem svg {
-  color: rgba(255, 255, 255, 0.3);
+  color: #94a3b8;
   transition: all 0.3s;
 }
 
 .navItem:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: #f1f5f9;
+  color: #2f3542;
 }
 
 .navItem:hover svg {
-  color: white;
+  color: #273c75;
 }
 
 .active {
-  background: var(--card-bg);
-  color: var(--text-primary) !important;
-  border: 1px solid var(--card-border);
+  background: #eff6ff;
+  color: #273c75 !important;
+  border: 1px solid rgba(39, 60, 117, 0.1);
 }
 
 .active svg {
-  color: #006266 !important;
+  color: #273c75 !important;
   transform: scale(1.1);
 }
 
 .bottomSection {
   padding: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .userModule {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8fafc;
   padding: 15px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  background: #7ed6df;
-  color: #006266;
+  background: #273c75;
+  color: white;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(39, 60, 117, 0.2);
 }
 
 .userInfo {
@@ -116,13 +116,13 @@
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: white;
+  color: #2f3542;
 }
 
 .userInfo span {
   font-size: 9px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.4);
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -132,15 +132,17 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: #64748b;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: all 0.2s;
+  border-radius: 12px;
 }
 
 .logoutBtn:hover {
-  color: #ff7675;
+  color: #ef4444;
   transform: translateX(5px);
+  background: #fef2f2;
 }

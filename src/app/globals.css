@@ -4,19 +4,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Cores do Sistema */
+  /* Cores do Sistema Premium */
   --bg-system: #ffffff;
-  --card-border: #1e272e;
-  --card-bg: #d2dae2;
-  --text-primary: #1e272e;
-  --text-secondary: #485460;
+  --card-border: rgba(0, 0, 0, 0.04);
+  --card-bg: #dcdde1;
+  --text-primary: #2f3542;
+  --text-secondary: #64748b;
   
   /* Cores de Status/Uso Interno */
-  --status-danger: #f53b57;
-  --status-warning: #ffc048;
-  --status-success: #05c46b;
+  --status-danger: #ef4444;
+  --status-warning: #f59e0b;
+  --status-success: #10b981;
 
-  /* Cores da Landing Page */
+  /* Cores da Landing Page & Primárias */
   --lp-header: #3867d6;
   --lp-fold1: #dfe6e9;
   --lp-fold2: #ffffff;
@@ -26,8 +26,8 @@
   --login-bg: #b2bec3;
   --login-card: #3867d6;
   
-  --shadow-premium: 0 4px 6px -1px rgba(30, 39, 46, 0.1), 0 2px 4px -1px rgba(30, 39, 46, 0.06);
-  --radius-default: 8px;
+  --shadow-premium: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  --radius-default: 16px;
 }
 
 * {
@@ -119,4 +119,83 @@ button {
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* ===========================
+   MODAL UTILITIES
+   =========================== */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.modal-input {
+  width: 100%;
+  border: 2px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2f3542;
+  outline: none;
+  transition: all 0.2s;
+  font-family: inherit;
+  background: #fff;
+}
+
+.modal-input:focus {
+  border-color: #273c75;
+  box-shadow: 0 0 0 3px rgba(39, 60, 117, 0.08);
+}
+
+.modal-input::placeholder {
+  color: #cbd5e1;
+}
+
+.modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modal-btn-primary {
+  width: 100%;
+  background: #273c75;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.modal-btn-primary:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -5px rgba(39, 60, 117, 0.3);
+}
+
+.modal-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }

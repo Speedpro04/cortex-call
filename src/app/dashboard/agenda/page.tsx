@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
+import PremiumModal from '@/components/PremiumModal/PremiumModal';
 import { Search, ChevronDown, Plus, User, Stethoscope, Loader2, X, Clock } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import toast from 'react-hot-toast';
@@ -197,72 +198,62 @@ export default function AgendaPage() {
         </div>
       </div>
 
-      {/* Modal Nova Consulta */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl w-full max-w-md p-8 shadow-2xl relative animate-in zoom-in-95 duration-200">
-            <button onClick={() => setIsModalOpen(false)} className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
-              <X size={20} />
-            </button>
-            <h3 className="text-xl font-bold text-[#001f3f] mb-6 uppercase tracking-wider">Novo Agendamento</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Procedimento *</label>
-                <input 
-                  type="text" 
-                  className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium"
-                  placeholder="Ex: Consulta, Exame..."
-                  value={form.procedure}
-                  onChange={e => setForm({...form, procedure: e.target.value})}
-                />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Horário *</label>
-                  <input 
-                    type="time" 
-                    className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium"
-                    value={form.time}
-                    onChange={e => setForm({...form, time: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Valor (R$)</label>
-                  <input 
-                    type="text" 
-                    className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium"
-                    placeholder="0,00"
-                    value={form.value}
-                    onChange={e => setForm({...form, value: e.target.value})}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Médico Responsável</label>
-                <select 
-                  className="w-full border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none transition-all font-medium bg-white"
-                  value={form.specialist_id}
-                  onChange={e => setForm({...form, specialist_id: e.target.value})}
-                >
-                  <option value="">Selecione...</option>
-                  {specialists.map(s => <option key={s.id} value={s.id}>{s.nome}</option>)}
-                </select>
-              </div>
-
-              <button 
-                onClick={handleSave}
-                disabled={isSaving}
-                className="w-full bg-[#001f3f] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:brightness-125 transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2 mt-4"
-              >
-                {isSaving ? <Loader2 className="animate-spin" size={16} /> : 'CONFIRMAR AGENDAMENTO'}
-              </button>
-            </div>
+      <PremiumModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Novo Agendamento"
+        subtitle="Preencha os dados da consulta"
+      >
+        <div className="modal-field">
+          <label className="modal-label">Procedimento *</label>
+          <input
+            type="text"
+            className="modal-input"
+            placeholder="Ex: Consulta, Exame, Retorno..."
+            value={form.procedure}
+            onChange={e => setForm({...form, procedure: e.target.value})}
+          />
+        </div>
+        <div className="modal-grid-2">
+          <div className="modal-field">
+            <label className="modal-label">Horário *</label>
+            <input
+              type="time"
+              className="modal-input"
+              value={form.time}
+              onChange={e => setForm({...form, time: e.target.value})}
+            />
+          </div>
+          <div className="modal-field">
+            <label className="modal-label">Valor (R$)</label>
+            <input
+              type="text"
+              className="modal-input"
+              placeholder="0,00"
+              value={form.value}
+              onChange={e => setForm({...form, value: e.target.value})}
+            />
           </div>
         </div>
-      )}
+        <div className="modal-field">
+          <label className="modal-label">Médico Responsável</label>
+          <select
+            className="modal-input"
+            value={form.specialist_id}
+            onChange={e => setForm({...form, specialist_id: e.target.value})}
+          >
+            <option value="">Selecione o especialista...</option>
+            {specialists.map(s => <option key={s.id} value={s.id}>{s.nome}</option>)}
+          </select>
+        </div>
+        <button
+          className="modal-btn-primary"
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {isSaving ? <Loader2 className="animate-spin" size={16} /> : 'CONFIRMAR AGENDAMENTO'}
+        </button>
+      </PremiumModal>
     </DashboardLayout>
   );
 }

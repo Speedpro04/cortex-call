@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Trash2, X, Send, Sparkles, BrainCircuit } from 'lucide-react';
+import { Trash2, X, Send, Sparkles, Headset } from 'lucide-react';
 import styles from './chat.module.css';
 
 interface Message {
@@ -16,7 +16,7 @@ interface SolaraChatProps {
 
 export default function SolaraChat({ isOpen, onClose }: SolaraChatProps) {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: 'Olá, sou Cortex, sua estrategista de negócios de elite. Como posso otimizar a performance da sua clínica hoje?' }
+    { role: 'model', text: 'Olá! Conectado ao canal de suporte da clínica. Como podemos ajudar hoje?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -58,10 +58,12 @@ export default function SolaraChat({ isOpen, onClose }: SolaraChatProps) {
     <div className={styles.chatWindow}>
       <div className={styles.header}>
         <div className={styles.headerInfo}>
-          <img src="/cortex-logo.png" alt="Cortex" style={{ width: '32px', height: 'auto', objectFit: 'contain' }} />
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#273c75] text-white">
+            <Headset size={18} />
+          </div>
           <div className="flex flex-col">
-            <span className="text-[10px] font-black tracking-[2px] opacity-60 uppercase">Estrategista</span>
-            <span className="text-xs font-bold uppercase tracking-widest">Cortex IA</span>
+            <span className="text-[10px] font-black tracking-[2px] opacity-60 uppercase">Comunicação Interna</span>
+            <span className="text-xs font-bold uppercase tracking-widest">Solara Cortex</span>
           </div>
         </div>
         <div className="flex gap-2">
@@ -90,8 +92,8 @@ export default function SolaraChat({ isOpen, onClose }: SolaraChatProps) {
           >
             {msg.role === 'model' && (
               <div className="flex items-center gap-2 mb-2 opacity-40">
-                <BrainCircuit size={10} />
-                <span className="text-[8px] font-black uppercase tracking-widest">Neural Link</span>
+                <Headset size={10} />
+                <span className="text-[8px] font-black uppercase tracking-widest">Suporte Clínica</span>
               </div>
             )}
             <p className="whitespace-pre-wrap">{msg.text}</p>

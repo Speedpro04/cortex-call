@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Sparkles, Bell, Search, Settings } from 'lucide-react';
+import { Sparkles, Bell, Search, Settings, Headset } from 'lucide-react';
 import Logo from '../Logo/Logo';
 import styles from './header.module.css';
 
@@ -14,8 +14,8 @@ export default function Header({ onOpenChat }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.left}>
         <div className={styles.titleSection}>
-          <h1>Cortex Call</h1>
-          <p>GESTÃO INTELIGENTE PARA CLÍNICAS MÉDICAS</p>
+          <h1>Dashboard</h1>
+          <p>BEM-VINDO DE VOLTA</p>
         </div>
       </div>
 
@@ -33,8 +33,14 @@ export default function Header({ onOpenChat }: HeaderProps) {
           <input type="text" placeholder="BUSCAR..." />
         </div>
         
-        <button className={styles.solaraBtn} onClick={onOpenChat} title="SOLARA AI">
-          <Sparkles size={24} />
+        <button className={styles.solaraCard} onClick={onOpenChat}>
+          <div className={styles.solaraCardIcon}>
+            <Headset size={20} />
+          </div>
+          <div className={styles.solaraCardText}>
+            <strong>Solara Cortex</strong>
+            <span>Suporte & Atendimento</span>
+          </div>
         </button>
 
         <div className={styles.userBadge}>

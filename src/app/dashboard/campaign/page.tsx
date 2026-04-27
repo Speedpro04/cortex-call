@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
+import PremiumModal from '@/components/PremiumModal/PremiumModal';
 import { Zap, MessageSquare, Users, TrendingUp, Clock, CheckCircle2, Play, Pause, Settings, Plus, Send, Target, Calendar } from 'lucide-react';
 import styles from './campaign.module.css';
 
@@ -30,6 +31,8 @@ export default function AutoCampaignPage() {
   const [activeCampaigns, setActiveCampaigns] = useState<Campaign[]>([]);
   const [selectedCampaignId, setSelectedCampaignId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
 
   const fetchCampaigns = async () => {
     try {
@@ -79,12 +82,12 @@ export default function AutoCampaignPage() {
         await fetchCampaigns();
         setSelectedCampaignId(data.campaign.id);
         setActiveTab('active');
-        alert('Campanha iniciada com sucesso! A Solara IA assumiu os disparos.');
+        setSuccessModal(true);
       } else {
-        alert('Erro ao iniciar campanha.');
+        setErrorModal(true);
       }
     } catch (err) {
-      alert('Erro de comunicação com a API.');
+      setErrorModal(true);
     }
   };
 
@@ -259,6 +262,21 @@ export default function AutoCampaignPage() {
           </div>
         )}
       </div>
+      <PremiumModal isOpen={successModal} onClose={() => setSuccessModal(false)} title="Campanha Iniciada!" subtitle="Solara IA assumiu os disparos">
+        <div style={{ textAlign: 'center', padding: '8px 0 16px' }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>🚀</div>
+          <p style={{ color: '#718093', fontSize: 14, lineHeight: 1.6 }}>A Solara IA já está gerenciando sua campanha automaticamente. Acompanhe os resultados na aba <strong>Campanhas Ativas</strong>.</p>
+        </div>
+        <button className="modal-btn-primary" onClick={() => setSuccessModal(false)}>ENTENDIDO</button>
+      </PremiumModal>
+
+      <PremiumModal isOpen={errorModal} onClose={() => setErrorModal(false)} title="Erro na Campanha" subtitle="Não foi possível iniciar">
+        <div style={{ textAlign: 'center', padding: '8px 0 16px' }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>⚠️</div>
+          <p style={{ color: '#718093', fontSize: 14, lineHeight: 1.6 }}>Houve um erro de comunicação com a API. Verifique sua conexão e tente novamente.</p>
+        </div>
+        <button className="modal-btn-primary" onClick={() => setErrorModal(false)}>FECHAR</button>
+      </PremiumModal>
     </DashboardLayout>
   );
 }

@@ -1,11 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
-import { Stethoscope, Plus, MoreVertical, Edit2, Activity, Users, Sparkles } from 'lucide-react';
+import PremiumModal from '@/components/PremiumModal/PremiumModal';
+import { Stethoscope, Plus, MoreVertical, Edit2, Activity, Users, Sparkles, Loader2 } from 'lucide-react';
 import styles from './specialists.module.css';
 
 export default function SpecialistsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [form, setForm] = useState({ nome: '', especialidade: '', cro: '', telefone: '', email: '' });
+
   const specialists = [
     { id: 1, name: 'Dr. Roberto Cardoso', specialty: 'Cardiologia', status: 'ATIVO', patients: 142, rating: 4.9 },
     { id: 2, name: 'Dra. Mara Silveira', specialty: 'Dermatologia', status: 'ATIVO', patients: 98, rating: 4.8 },
@@ -20,6 +25,15 @@ export default function SpecialistsPage() {
     { label: 'AVALIAÇÃO MÉDIA', value: '4.9', icon: <Sparkles size={20} />, color: 'purple' },
   ];
 
+  const handleSave = async () => {
+    if (!form.nome || !form.especialidade) return;
+    setIsSaving(true);
+    await new Promise(r => setTimeout(r, 800));
+    setIsSaving(false);
+    setIsModalOpen(false);
+    setForm({ nome: '', especialidade: '', cro: '', telefone: '', email: '' });
+  };
+
   return (
     <DashboardLayout>
       <div className={styles.container}>
@@ -28,12 +42,11 @@ export default function SpecialistsPage() {
             <h2>ESPECIALISTAS</h2>
             <p>GESTÃO DE CORPO CLÍNICO E PERFORMANCE</p>
           </div>
-          <button className={styles.newBtn}>
+          <button className={styles.newBtn} onClick={() => setIsModalOpen(true)}>
             <Plus size={18} /> NOVO ESPECIALISTA
           </button>
         </div>
 
-        {/* KPI Grid */}
         <div className={styles.statsGrid}>
           {stats.map((stat, i) => (
             <div key={i} className={styles.statCard}>
@@ -46,7 +59,6 @@ export default function SpecialistsPage() {
           ))}
         </div>
 
-        {/* Specialists Table */}
         <div className={styles.tableCard}>
           <div className={styles.tableHeader}>
             <h3>CORPO CLÍNICO ATIVO</h3>
@@ -91,6 +103,80 @@ export default function SpecialistsPage() {
           </div>
         </div>
       </div>
+
+      <PremiumModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Novo Especialista"
+        subtitle="Cadastro no corpo clínico"
+      >
+        <div className="modal-field">
+          <label className="modal-label">Nome Completo *</label>
+          <input
+            type="text"
+            className="modal-input"
+            placeholder="Ex: Dr. João Paulo Mendes"
+            value={form.nome}
+            onChange={e => setForm({...form, nome: e.target.value})}
+          />
+        </div>
+        <div className="modal-grid-2">
+          <div className="modal-field">
+            <label className="modal-label">Especialidade *</label>
+            <select
+              className="modal-input"
+              value={form.especialidade}
+              onChange={e => setForm({...form, especialidade: e.target.value})}
+            >
+              <option value="">Selecione...</option>
+              <option>Clínico Geral</option>
+              <option>Cardiologia</option>
+              <option>Dermatologia</option>
+              <option>Ginecologia</option>
+              <option>Ortopedia</option>
+              <option>Pediatria</option>
+              <option>Psiquiatria</option>
+              <option>Neurologia</option>
+              <option>Oftalmologia</option>
+            </select>
+          </div>
+          <div className="modal-field">
+            <label className="modal-label">CRM / CRO</label>
+            <input
+              type="text"
+              className="modal-input"
+              placeholder="CRM-SP 12345"
+              value={form.cro}
+              onChange={e => setForm({...form, cro: e.target.value})}
+            />
+          </div>
+        </div>
+        <div className="modal-grid-2">
+          <div className="modal-field">
+            <label className="modal-label">Telefone</label>
+            <input
+              type="text"
+              className="modal-input"
+              placeholder="(11) 99999-9999"
+              value={form.telefone}
+              onChange={e => setForm({...form, telefone: e.target.value})}
+            />
+          </div>
+          <div className="modal-field">
+            <label className="modal-label">E-mail</label>
+            <input
+              type="email"
+              className="modal-input"
+              placeholder="dr@clinica.com"
+              value={form.email}
+              onChange={e => setForm({...form, email: e.target.value})}
+            />
+          </div>
+        </div>
+        <button className="modal-btn-primary" onClick={handleSave} disabled={isSaving}>
+          {isSaving ? <Loader2 className="animate-spin" size={16} /> : 'CADASTRAR ESPECIALISTA'}
+        </button>
+      </PremiumModal>
     </DashboardLayout>
   );
 }

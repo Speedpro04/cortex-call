@@ -1,8 +1,16 @@
-import { Users, UserPlus, Search, Filter, MoreHorizontal, MessageSquare, Activity, Zap } from 'lucide-react';
+'use client';
+
+import React, { useState } from 'react';
+import { Users, UserPlus, Search, MoreHorizontal, MessageSquare, Activity, Zap, Loader2 } from 'lucide-react';
 import DashboardLayout from '@/components/DashboardLayout/DashboardLayout';
+import PremiumModal from '@/components/PremiumModal/PremiumModal';
 import styles from './patients.module.css';
 
 export default function PatientsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [form, setForm] = useState({ nome: '', telefone: '', email: '', origem: 'whatsapp' });
+
   const patients = [
     { id: 1, name: 'Marcos Vinícius de Souza', lastVisit: '15/03/2024', status: 'CONFIRMADO', risk: 'baixo', totalSpent: 'R$ 2.450' },
     { id: 2, name: 'Helena Costa Ribeiro', lastVisit: '10/03/2024', status: 'AUSENTE', risk: 'alto', totalSpent: 'R$ 1.890' },
@@ -17,6 +25,15 @@ export default function PatientsPage() {
     { label: 'INATIVOS', value: '156', icon: <Zap size={20} />, color: 'purple' },
   ];
 
+  const handleSave = async () => {
+    if (!form.nome || !form.telefone) return;
+    setIsSaving(true);
+    await new Promise(r => setTimeout(r, 800));
+    setIsSaving(false);
+    setIsModalOpen(false);
+    setForm({ nome: '', telefone: '', email: '', origem: 'whatsapp' });
+  };
+
   return (
     <DashboardLayout>
       <div className={styles.container}>
@@ -25,12 +42,11 @@ export default function PatientsPage() {
             <h2>BASE DE PACIENTES</h2>
             <p>GESTÃO COMPLETA DE PRONTUÁRIOS E RELACIONAMENTO</p>
           </div>
-          <button className={styles.newBtn}>
+          <button className={styles.newBtn} onClick={() => setIsModalOpen(true)}>
             <UserPlus size={18} /> NOVO PACIENTE
           </button>
         </div>
 
-        {/* KPI Grid */}
         <div className={styles.statsGrid}>
           {stats.map((stat, i) => (
             <div key={i} className={styles.statCard}>
@@ -43,7 +59,6 @@ export default function PatientsPage() {
           ))}
         </div>
 
-        {/* Patients Table Card */}
         <div className={styles.tableCard}>
           <div className={styles.tableHeader}>
             <h3>LISTAGEM DE PACIENTES</h3>
@@ -94,6 +109,62 @@ export default function PatientsPage() {
           </div>
         </div>
       </div>
+
+      <PremiumModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Novo Paciente"
+        subtitle="Cadastro na base da clínica"
+      >
+        <div className="modal-field">
+          <label className="modal-label">Nome Completo *</label>
+          <input
+            type="text"
+            className="modal-input"
+            placeholder="Ex: Maria Aparecida Silva"
+            value={form.nome}
+            onChange={e => setForm({...form, nome: e.target.value})}
+          />
+        </div>
+        <div className="modal-grid-2">
+          <div className="modal-field">
+            <label className="modal-label">Telefone *</label>
+            <input
+              type="text"
+              className="modal-input"
+              placeholder="(11) 99999-9999"
+              value={form.telefone}
+              onChange={e => setForm({...form, telefone: e.target.value})}
+            />
+          </div>
+          <div className="modal-field">
+            <label className="modal-label">E-mail</label>
+            <input
+              type="email"
+              className="modal-input"
+              placeholder="email@exemplo.com"
+              value={form.email}
+              onChange={e => setForm({...form, email: e.target.value})}
+            />
+          </div>
+        </div>
+        <div className="modal-field">
+          <label className="modal-label">Origem do Lead</label>
+          <select
+            className="modal-input"
+            value={form.origem}
+            onChange={e => setForm({...form, origem: e.target.value})}
+          >
+            <option value="whatsapp">WhatsApp</option>
+            <option value="site">Site</option>
+            <option value="indicacao">Indicação</option>
+            <option value="campanha">Campanha</option>
+          </select>
+        </div>
+        <button className="modal-btn-primary" onClick={handleSave} disabled={isSaving}>
+          {isSaving ? <Loader2 className="animate-spin" size={16} /> : 'CADASTRAR PACIENTE'}
+        </button>
+      </PremiumModal>
     </DashboardLayout>
   );
 }

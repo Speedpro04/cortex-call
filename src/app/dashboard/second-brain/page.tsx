@@ -18,7 +18,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import KnowledgeGraph from '@/components/KnowledgeBase/KnowledgeGraph';
 import styles from './second-brain.module.css';
-import { PowerSun } from '@/components/Logo/Logo';
+
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 import "easymde/dist/easymde.min.css";
