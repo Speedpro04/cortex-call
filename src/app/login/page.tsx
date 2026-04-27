@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Mail, Lock, User, ArrowLeft, ShieldCheck, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { Mail, Lock, User, ArrowLeft, ShieldCheck, AlertCircle, Eye, EyeOff, Headset } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import styles from './login.module.css';
 
@@ -35,7 +35,8 @@ export default function LoginPage() {
       });
       const masterData = await masterRes.json();
       if (masterData.isMaster) {
-        window.location.href = '/dashboard';
+        setSuccess('Acesso Master identificado. Preparando dashboard...');
+        router.push('/dashboard');
         return;
       }
     } catch (masterErr) {
@@ -122,7 +123,7 @@ export default function LoginPage() {
       <div className={styles.formPane}>
         <div className={styles.loginCard}>
           <div className={styles.logoContainer}>
-            <img src="/logo.png" alt="Cortex Call" style={{ height: '280px', width: 'auto' }} />
+            <Headset size={140} color="#2d5a4c" strokeWidth={1.5} />
           </div>
 
           {error && <div className={styles.errorDiv}><AlertCircle size={16} /> {error}</div>}

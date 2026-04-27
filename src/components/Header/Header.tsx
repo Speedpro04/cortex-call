@@ -10,6 +10,26 @@ interface HeaderProps {
 }
 
 export default function Header({ onOpenChat }: HeaderProps) {
+  const [currentTime, setCurrentTime] = React.useState('');
+  
+  React.useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+      const timeStr = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
+      setCurrentTime(timeStr);
+    };
+
+    updateClock();
+    const interval = setInterval(updateClock, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.left}>
@@ -24,7 +44,7 @@ export default function Header({ onOpenChat }: HeaderProps) {
           <div className={styles.dot}></div>
           <span>SOLARA ATENDENDO</span>
         </div>
-        <div className={styles.timer}>01:36:52</div>
+        <div className={styles.timer}>{currentTime || 'CARREGANDO...'}</div>
       </div>
 
       <div className={styles.right}>

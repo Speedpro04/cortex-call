@@ -60,6 +60,7 @@
   align-items: center;
   position: relative;
   box-shadow: 20px 0 60px rgba(0, 0, 0, 0.2); /* Sombra elegante dividindo o branco e a imagem */
+  border-right: 1.5px solid #475569;
 }
 
 .loginCard {
@@ -95,7 +96,7 @@
 }
 
 .headerText h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
   color: #1e272e;
   letter-spacing: -0.5px;
@@ -103,9 +104,9 @@
 }
 
 .headerText p {
-  font-size: 14px;
-  font-weight: 600;
-  color: #636e72;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d5a4c;
 }
 
 .form {
@@ -122,8 +123,8 @@
 }
 
 .inputGroup label {
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 900;
   color: #2d3436;
   letter-spacing: 1px;
   padding-left: 2px;
@@ -138,7 +139,7 @@
 .inputIcon {
   position: absolute;
   left: 20px;
-  color: #3867d6;
+  color: #2d5a4c;
 }
 
 .inputWrapper input {
@@ -148,7 +149,8 @@
   border-radius: 12px;
   padding: 18px 20px 18px 55px;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 500;
   color: #1e272e;
   outline: none;
   transition: all 0.3s ease;
@@ -156,8 +158,8 @@
 
 .inputWrapper input:focus {
   background: #ffffff;
-  border-color: #3867d6;
-  box-shadow: 0 0 0 4px rgba(56, 103, 214, 0.1);
+  border-color: #2d5a4c;
+  box-shadow: 0 0 0 4px rgba(45, 90, 76, 0.1);
 }
 
 .passwordToggle {
@@ -175,28 +177,28 @@
 }
 
 .passwordToggle:hover {
-  color: #3867d6;
+  color: #2d5a4c;
 }
 
 .submitButton {
   margin-top: 10px;
-  background: #3867d6;
+  background: #2d5a4c;
   color: #ffffff;
-  font-weight: 800;
-  font-size: 15px;
+  font-weight: 900;
+  font-size: 17px;
   letter-spacing: 1px;
   padding: 22px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(56, 103, 214, 0.3);
+  box-shadow: 0 10px 25px rgba(45, 90, 76, 0.3);
 }
 
 .submitButton:hover {
   transform: translateY(-2px);
-  background: #2b50a8;
-  box-shadow: 0 15px 35px rgba(56, 103, 214, 0.4);
+  background: #24483d;
+  box-shadow: 0 15px 35px rgba(45, 90, 76, 0.4);
 }
 
 .extraLinks {
@@ -208,8 +210,8 @@
 }
 
 .link {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   color: #636e72;
   background: none;
   border: none;
@@ -238,8 +240,8 @@
   background: none;
   border: none;
   color: #636e72;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -254,7 +256,7 @@
   align-items: center;
   gap: 10px;
   color: #94a3b8;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
 }
@@ -266,7 +268,7 @@
   color: #e55039;
   padding: 15px;
   border-radius: 12px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -282,7 +284,7 @@
   color: #05c46b;
   padding: 15px;
   border-radius: 12px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 25px;
@@ -304,5 +306,6 @@
     padding: 40px;
     border-radius: 24px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 1.5px solid #475569;
   }
 }

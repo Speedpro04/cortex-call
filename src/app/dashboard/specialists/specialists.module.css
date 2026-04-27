@@ -11,14 +11,14 @@
 }
 
 .titleRow h2 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
   letter-spacing: 2px;
 }
 
 .titleRow p {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 2px;
@@ -30,7 +30,7 @@
   color: white;
   padding: 14px 28px;
   border-radius: var(--radius-default);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
@@ -79,7 +79,7 @@
 .statIcon[data-color="purple"] { background: rgba(162, 155, 254, 0.1); color: #6c5ce7; }
 
 .statInfo p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -87,7 +87,7 @@
 }
 
 .statInfo h3 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -108,7 +108,7 @@
 }
 
 .tableHeader h3 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 900;
   color: #2f3640;
   letter-spacing: 2px;
@@ -126,7 +126,7 @@
 .table th {
   text-align: left;
   padding: 20px 40px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -135,7 +135,7 @@
 
 .table td {
   padding: 25px 40px;
-  font-size: 14px;
+  font-size: 15px;
   color: #2f3640;
   border-bottom: 1px solid #F0F2F5;
 }
@@ -146,12 +146,12 @@
 }
 
 .specialistInfo strong {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 950;
 }
 
 .specialistInfo span {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 1px;
@@ -160,7 +160,7 @@
 .statusBadge {
   padding: 5px 12px;
   border-radius: 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 1px;
 }

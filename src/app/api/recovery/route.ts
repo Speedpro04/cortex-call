@@ -11,19 +11,43 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const clinic_id = searchParams.get('clinic_id');
 
-    let query = supabase
-      .from('patients')
-      .select('*')
-      .in('temperatura_lead', ['morno', 'frio', 'perdido'])
-      .order('ultima_consulta', { ascending: true, nullsFirst: false });
-      
-    if (clinic_id) {
-      query = query.eq('clinic_id', clinic_id);
-    }
-      
-    const { data: patients, error } = await query.limit(20);
+    const startOfMonth = new Date();
+    startOfMonth.setDate(1);
+    startOfMonth.setHours(0, 0, 0, 0);
 
-    if (error) throw error;
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+    const [
+      patientsRes,
+      totalPatientsRes,
+      riskPatientsRes,
+      campaignsRes
+    ] = await Promise.all([
+      // 1. Pacientes em risco
+      supabase.from('patients').select('*')
+        .in('temperatura_lead', ['morno', 'frio', 'perdido'])
+        .order('ultima_consulta', { ascending: true, nullsFirst: false })
+        .match(clinic_id ? { clinic_id } : {})
+        .limit(20),
+      
+      // 2. Total de pacientes
+      supabase.from('patients').select('*', { count: 'exact', head: true })
+        .match(clinic_id ? { clinic_id } : {}),
+      
+      // 3. Pacientes em risco (contagem)
+      supabase.from('patients').select('*', { count: 'exact', head: true })
+        .in('temperatura_lead', ['morno', 'frio', 'perdido'])
+        .match(clinic_id ? { clinic_id } : {}),
+      
+      // 4. Campanhas
+      supabase.from('campaigns').select('enviados_count, convertidos_count')
+        .gte('created_at', startOfMonth.toISOString())
+        .match(clinic_id ? { clinic_id } : {})
+    ]);
+
+    if (patientsRes.error) throw patientsRes.error;
+    const patients = patientsRes.data || [];
 
     const processedPatients = await Promise.all(patients.map(async (p) => {
       const riskAnalysis = await analyzePatientRisk({
@@ -46,35 +70,17 @@ export async function GET(request: Request) {
       };
     }));
 
-    // Calcular stats reais
-    const { count: totalPatients } = await supabase
-      .from('patients')
-      .select('*', { count: 'exact', head: true })
-      .match(clinic_id ? { clinic_id } : {});
-
-    const { count: riskPatients } = await supabase
-      .from('patients')
-      .select('*', { count: 'exact', head: true })
-      .in('temperatura_lead', ['morno', 'frio', 'perdido'])
-      .match(clinic_id ? { clinic_id } : {});
+    const totalPatients = totalPatientsRes.count;
+    const riskPatients = riskPatientsRes.count;
+    const campaigns = campaignsRes.data;
 
     const abandonRate = totalPatients && totalPatients > 0
       ? ((riskPatients || 0) / totalPatients * 100).toFixed(1)
       : '0.0';
 
-    const startOfMonth = new Date();
-    startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
-
-    const { data: campaigns } = await supabase
-      .from('campaigns')
-      .select('enviados_count, convertidos_count')
-      .gte('created_at', startOfMonth.toISOString())
-      .match(clinic_id ? { clinic_id } : {});
-
     const totalSent = campaigns?.reduce((sum, c) => sum + (c.enviados_count || 0), 0) || 0;
     const totalRecovered = campaigns?.reduce((sum, c) => sum + (c.convertidos_count || 0), 0) || 0;
-    const estimatedRevenue = totalRecovered * 200; // R$200 média por consulta
+    const estimatedRevenue = totalRecovered * 200; 
 
     const stats = [
       { label: 'TAXA DE ABANDONO', value: `${abandonRate}%`, color: 'orange' },

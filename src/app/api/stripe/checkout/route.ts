@@ -42,8 +42,9 @@ export async function POST(request: NextRequest) {
     }
 
     if (!stripePriceId) {
+       console.error(`Missing Stripe Price ID for plan: ${plan_slug}. Checked database and env variables.`);
        return NextResponse.json(
-        { error: 'Configuração de preço do Stripe ausente para este plano.' },
+        { error: `Configuração de preço do Stripe ausente para o plano: ${plan_slug}. Verifique as variáveis de ambiente.` },
         { status: 500 }
       );
     }

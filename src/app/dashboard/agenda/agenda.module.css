@@ -11,14 +11,14 @@
 }
 
 .titleInfo h2 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
   letter-spacing: 2px;
 }
 
 .titleInfo p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 2px;
@@ -30,7 +30,7 @@
   color: white;
   padding: 15px 30px;
   border-radius: var(--radius-default);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
@@ -64,7 +64,7 @@
 }
 
 .filterGroup span {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -74,7 +74,7 @@
   background: #F8FAFC;
   padding: 10px 20px;
   border-radius: 12px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   color: #2f3640;
   display: flex;
@@ -105,7 +105,7 @@
 }
 
 .sectionTitle {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 950;
   color: #2f3640;
   letter-spacing: 2px;
@@ -146,7 +146,7 @@
 .statusBadge {
   padding: 6px 12px;
   border-radius: 10px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   letter-spacing: 1.5px;
   width: fit-content;
@@ -164,7 +164,7 @@
 }
 
 .timeInfo span {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .cardInfo {
@@ -172,14 +172,14 @@
 }
 
 .cardInfo h4 {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 900;
   color: #2f3640;
   margin-bottom: 5px;
 }
 
 .cardInfo p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 2px;
@@ -198,12 +198,12 @@
   align-items: center;
   gap: 8px;
   color: #535c68;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .value {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -212,7 +212,7 @@
   background: #F8FAFC;
   padding: 10px 20px;
   border-radius: 12px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -233,13 +233,13 @@
 
 .slotInfo strong {
   display: block;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 900;
   color: #2f3640;
 }
 
 .slotInfo p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 1px;
@@ -250,7 +250,7 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 10px 20px;
   border-radius: 12px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;

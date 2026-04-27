@@ -13,44 +13,30 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const clinic_id = searchParams.get('clinic_id');
 
-    // 1. Estatísticas de pacientes
-    const { count: totalPatients } = await supabase
-      .from('patients')
-      .select('*', { count: 'exact', head: true })
-      .match(clinic_id ? { clinic_id } : {});
-
-    // 2. Pacientes em risco (morno, frio, perdido)
-    const { count: riskPatients } = await supabase
-      .from('patients')
-      .select('*', { count: 'exact', head: true })
-      .in('temperatura_lead', ['morno', 'frio', 'perdido'])
-      .match(clinic_id ? { clinic_id } : {});
-
-    // 3. Taxa de abandono
-    const abandonRate = totalPatients && totalPatients > 0
-      ? ((riskPatients || 0) / totalPatients * 100).toFixed(1)
-      : '0.0';
-
-    // 4. Campanhas enviadas este mês
-    const startOfMonth = new Date();
-    startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
-
-    const { data: campaigns } = await supabase
-      .from('campaigns')
-      .select('enviados_count, convertidos_count')
-      .gte('created_at', startOfMonth.toISOString())
-      .match(clinic_id ? { clinic_id } : {});
-
-    const totalSent = campaigns?.reduce((sum, c) => sum + (c.enviados_count || 0), 0) || 0;
-    const totalRecovered = campaigns?.reduce((sum, c) => sum + (c.convertidos_count || 0), 0) || 0;
-
-    // 5. Agendamentos de hoje
-    const today = new Date().toISOString().split('T')[0];
-
-    const { data: todayAppointments } = await supabase
-      .from('appointments')
-      .select(`
+    // Executar chamadas em paralelo para performance
+    const [
+      patientsRes,
+      riskPatientsRes,
+      campaignsRes,
+      todayAppointmentsRes,
+      alertPatientsRes,
+      npsDataRes
+    ] = await Promise.all([
+      // 1. Total de pacientes
+      supabase.from('patients').select('*', { count: 'exact', head: true }).match(clinic_id ? { clinic_id } : {}),
+      
+      // 2. Pacientes em risco
+      supabase.from('patients').select('*', { count: 'exact', head: true })
+        .in('temperatura_lead', ['morno', 'frio', 'perdido'])
+        .match(clinic_id ? { clinic_id } : {}),
+      
+      // 4. Campanhas enviadas este mês
+      supabase.from('campaigns').select('enviados_count, convertidos_count')
+        .gte('created_at', startOfMonth.toISOString())
+        .match(clinic_id ? { clinic_id } : {}),
+      
+      // 5. Agendamentos de hoje
+      supabase.from('appointments').select(`
         id, appointment_time, status, tipo, motivo,
         patients(nome_completo, telefone, temperatura_lead),
         specialists(nome, especialidade)
@@ -58,7 +44,33 @@ export async function GET(request: NextRequest) {
       .like('appointment_time', `${today}%`)
       .match(clinic_id ? { clinic_id } : {})
       .order('appointment_time', { ascending: true })
-      .limit(20);
+      .limit(20),
+      
+      // 6. Pacientes alertas (6+ meses sem retorno)
+      supabase.from('patients').select('*', { count: 'exact', head: true })
+        .lt('ultima_consulta', sixMonthsAgo.toISOString())
+        .match(clinic_id ? { clinic_id } : {}),
+      
+      // 7. NPS stats
+      supabase.from('nps_responses').select('score')
+        .gte('created_at', startOfMonth.toISOString())
+        .match(clinic_id ? { clinic_id } : {})
+    ]);
+
+    const totalPatients = patientsRes.count;
+    const riskPatients = riskPatientsRes.count;
+    const campaigns = campaignsRes.data;
+    const todayAppointments = todayAppointmentsRes.data;
+    const alertPatients = alertPatientsRes.count;
+    const npsData = npsDataRes.data;
+
+    // 3. Taxa de abandono
+    const abandonRate = totalPatients && totalPatients > 0
+      ? ((riskPatients || 0) / totalPatients * 100).toFixed(1)
+      : '0.0';
+
+    const totalSent = campaigns?.reduce((sum, c) => sum + (c.enviados_count || 0), 0) || 0;
+    const totalRecovered = campaigns?.reduce((sum, c) => sum + (c.convertidos_count || 0), 0) || 0;
 
     const formatted = (todayAppointments || []).map((a: any) => ({
       id: a.id,
@@ -71,29 +83,11 @@ export async function GET(request: NextRequest) {
       specialty: a.specialists?.especialidade || '',
     }));
 
-    // 6. Pacientes alertas (6+ meses sem retorno)
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-
-    const { count: alertPatients } = await supabase
-      .from('patients')
-      .select('*', { count: 'exact', head: true })
-      .lt('ultima_consulta', sixMonthsAgo.toISOString())
-      .match(clinic_id ? { clinic_id } : {});
-
-    // 7. NPS stats
-    const { data: npsData } = await supabase
-      .from('nps_responses')
-      .select('score')
-      .gte('created_at', startOfMonth.toISOString())
-      .match(clinic_id ? { clinic_id } : {});
-
     const avgNps = npsData && npsData.length > 0
       ? (npsData.reduce((sum, n) => sum + n.score, 0) / npsData.length).toFixed(1)
       : null;
 
-    // Estimar faturamento recuperado (convertidos * valor médio consulta)
-    const avgConsultValue = 200; // R$200 média
+    const avgConsultValue = 200; 
     const estimatedRevenue = totalRecovered * avgConsultValue;
 
     const recoveryRate = totalSent > 0

@@ -1,17 +1,17 @@
 .sidebar {
   width: 280px;
   height: 100vh;
-  background: #ffffff;
-  color: var(--text-primary);
+  background: #2d5a4c;
+  color: white;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 100;
-  border-right: 2px solid #353b48;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 
 .topSection {
-  padding: 40px 30px;
+  padding: 0px 30px 40px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,9 +39,9 @@
   align-items: center;
   gap: 16px;
   padding: 14px 20px;
-  border-radius: var(--radius-default);
-  color: var(--text-secondary);
-  font-size: 11px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -50,60 +50,59 @@
 }
 
 .navItem svg {
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.5);
   transition: all 0.3s;
 }
 
 .navItem:hover {
-  background: #f1f5f9;
-  color: #2f3542;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .navItem:hover svg {
-  color: #273c75;
+  color: white;
 }
 
 .active {
-  background: #eff6ff;
-  color: #273c75 !important;
-  border: 1px solid rgba(39, 60, 117, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .active svg {
-  color: #273c75 !important;
+  color: white !important;
   transform: scale(1.1);
 }
 
 .bottomSection {
   padding: 30px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .userModule {
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.05);
   padding: 15px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  background: #273c75;
-  color: white;
+  background: white;
+  color: #2d5a4c;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(39, 60, 117, 0.2);
+  font-size: 17px;
 }
 
 .userInfo {
@@ -113,16 +112,16 @@
 }
 
 .userInfo strong {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: #2f3542;
+  color: white;
 }
 
 .userInfo span {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -132,8 +131,8 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  color: #64748b;
-  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;

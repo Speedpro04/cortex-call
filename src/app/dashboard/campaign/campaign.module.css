@@ -11,14 +11,14 @@
 }
 
 .titleRow h2 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
   letter-spacing: 2px;
 }
 
 .titleRow p {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 2px;
@@ -30,7 +30,7 @@
   color: white;
   padding: 14px 28px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 2px;
   display: flex;
@@ -77,7 +77,7 @@
 .kpiIcon[data-color="coral"] { background: rgba(255,118,117,0.1); color: #ff7675; }
 
 .kpiCard p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;
@@ -85,7 +85,7 @@
 }
 
 .kpiCard h3 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -105,7 +105,7 @@
 .tab {
   padding: 12px 24px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 1.5px;
   color: #535c68;
@@ -161,7 +161,7 @@
 }
 
 .campaignItemTop h4 {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -169,7 +169,7 @@
 .statusPill {
   padding: 4px 12px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 1px;
 }
@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 13px;
   color: #535c68;
   font-weight: 700;
   margin-bottom: 15px;
@@ -204,7 +204,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: #535c68;
 }
@@ -228,14 +228,14 @@
 }
 
 .detailHeader h3 {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 900;
   color: #2f3640;
   margin-bottom: 5px;
 }
 
 .detailHeader p {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #535c68;
 }
@@ -250,7 +250,7 @@
   color: #ffa502;
   padding: 12px 20px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 1px;
   display: flex;
@@ -285,7 +285,7 @@
 }
 
 .detailStat p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -293,7 +293,7 @@
 }
 
 .detailStat h4 {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -306,7 +306,7 @@
 }
 
 .messagePreview label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;
@@ -331,7 +331,7 @@
 }
 
 .messageBubble p {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #2f3640;
   line-height: 1.6;
@@ -345,7 +345,7 @@
 }
 
 .timeline label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;
@@ -377,14 +377,14 @@
 
 .stepInfo strong {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   color: #2f3640;
   margin-bottom: 3px;
 }
 
 .stepInfo p {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: #535c68;
 }
@@ -404,7 +404,7 @@
 }
 
 .iaNote p {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -444,14 +444,14 @@
 }
 
 .tplInfo h4 {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 900;
   color: #2f3640;
   margin-bottom: 5px;
 }
 
 .tplInfo p {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: #535c68;
 }
@@ -459,7 +459,7 @@
 .tplInfo span {
   display: inline-block;
   margin-top: 10px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   color: #2f3640;
   background: rgba(0,98,102,0.08);
@@ -472,7 +472,7 @@
   color: white;
   padding: 14px 28px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 1.5px;
   display: flex;
@@ -491,7 +491,7 @@
 }
 
 .emptyMsg {
-  font-size: 16px;
+  font-size: 17px;
   color: #535c68;
   font-weight: 700;
 }

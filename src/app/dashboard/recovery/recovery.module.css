@@ -5,14 +5,14 @@
 }
 
 .titleInfo h2 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   color: #2f3640;
   letter-spacing: 2px;
 }
 
 .titleInfo p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 2px;
@@ -52,7 +52,7 @@
 .statIcon[data-color="purple"] { background: #E6EBF0; color: #6c5ce7; }
 
 .statInfo p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -60,7 +60,7 @@
 }
 
 .statInfo h3 {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 900;
   color: #2f3640;
 }
@@ -83,14 +83,14 @@
 }
 
 .headerTitle h3 {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 950;
   color: #2f3640;
   letter-spacing: 2px;
 }
 
 .headerTitle p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   color: #535c68;
   letter-spacing: 1.5px;
@@ -98,7 +98,7 @@
 }
 
 .viewAllBtn {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #7ed6df;
   letter-spacing: 1.5px;
@@ -120,7 +120,7 @@
 .table th {
   text-align: left;
   padding: 20px 30px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;
@@ -128,7 +128,7 @@
 
 .table td {
   padding: 30px;
-  font-size: 13px;
+  font-size: 14px;
   color: #2f3640;
 }
 
@@ -138,13 +138,13 @@
 }
 
 .patientCell strong {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 950;
   letter-spacing: -0.5px;
 }
 
 .patientCell span {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 1px;
@@ -163,7 +163,7 @@
 .scoreBadge {
   padding: 6px 14px;
   border-radius: 10px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   letter-spacing: 1.5px;
   width: fit-content;
@@ -178,7 +178,7 @@
   align-items: center;
   gap: 8px;
   color: #7ed6df;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -186,7 +186,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   color: #535c68;
 }

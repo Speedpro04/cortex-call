@@ -217,12 +217,13 @@ export default function LandingPage() {
                 <ul className={styles.planFeatures}>
                   {plan.features.map((f, j) => <li key={j}><CheckCircle2 size={16} /> {f}</li>)}
                 </ul>
-                <button 
+                <Link 
+                  href={`/register?plan=${plan.slug}`}
                   className={styles.planBtn}
-                  onClick={() => handlePlanSelection(plan.slug)}
+                  style={{ display: 'block', textDecoration: 'none' }}
                 >
                   ASSINAR PLANO
-                </button>
+                </Link>
               </div>
             ))}
           </div>

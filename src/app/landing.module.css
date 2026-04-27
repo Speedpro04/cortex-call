@@ -44,7 +44,7 @@
 }
 
 .logoText h1 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   letter-spacing: 2px;
   line-height: 1;
@@ -55,7 +55,7 @@
 }
 
 .logoText p {
-  font-size: 5px;
+  font-size: 6px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 1px;
@@ -68,7 +68,7 @@
 }
 
 .navLinks a {
-  font-size: 12px; /* Aumentado de 10px para 12px (+2px) */
+  font-size: 13px; /* Aumentado de 10px para 12px (+2px) */
   font-weight: 800;
   letter-spacing: 2px;
   color: #1e272e; /* Cinza mais escuro solicitado */
@@ -80,9 +80,9 @@
 }
 
 .navBtn {
-  background: #ff9f43;
-  color: var(--text-primary);
-  font-size: 11px;
+  background: #2d5a4c;
+  color: white;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 2px;
   padding: 20px 39px;
@@ -92,7 +92,7 @@
 
 .navBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 159, 67, 0.2);
+  box-shadow: 0 10px 20px rgba(45, 90, 76, 0.2);
 }
 
 /* Hero Section */
@@ -123,7 +123,7 @@
 }
 
 .badge span {
-  font-size: 13px; /* Aumentado em 4px */
+  font-size: 14px; /* Aumentado em 4px */
   font-weight: 900; /* Mais peso solicitado */
   letter-spacing: 2px;
   color: #ff9f43;
@@ -131,7 +131,7 @@
 }
 
 .heroContent h1 {
-  font-size: 66px; /* Aumentado de 64px para 66px (+2px) */
+  font-size: 67px; /* Aumentado de 64px para 66px (+2px) */
   line-height: 1.1;
   font-weight: 900;
   letter-spacing: -2px;
@@ -143,7 +143,7 @@
 }
 
 .heroContent p {
-  font-size: 20px; /* Aumentado de 18px para 20px (+2px) */
+  font-size: 21px; /* Aumentado de 18px para 20px (+2px) */
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 40px;
@@ -161,7 +161,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 16px; /* Aumentado de 14px para 16px (+2px) */
+  font-size: 17px; /* Aumentado de 14px para 16px (+2px) */
   font-weight: 600;
   color: var(--text-secondary); /* Cor cinza */
 }
@@ -176,10 +176,10 @@
 }
 
 .primaryBtn {
-  background: #4b7bec; 
+  background: #2d5a4c; 
   color: #dfe6e9; /* Cinza claro solicitado */
   font-weight: 900;
-  font-size: 16px; /* +2px do tamanho original 14px */
+  font-size: 17px; /* +2px do tamanho original 14px */
   letter-spacing: 2px;
   padding: 20px 65px;
   border: 1px solid var(--card-border);
@@ -190,7 +190,7 @@
 .secondaryBtn {
   color: var(--text-primary);
   font-weight: 900;
-  font-size: 16px; /* Aumentado em 2px */
+  font-size: 17px; /* Aumentado em 2px */
   letter-spacing: 2px;
   padding: 20px 65px;
   border: 1px solid #485460; /* Cinza escuro solicitado */
@@ -206,7 +206,7 @@
   position: absolute;
   top: -310px;
   right: -20px;
-  background: #4b7bec; 
+  background: #2d5a4c; 
   padding: 30px;
   border-radius: 20px;
   max-width: 400px;
@@ -218,7 +218,7 @@
 
 .floatingQuote p {
   color: #dfe6e9; /* Cinza claro solicitado */
-  font-size: 22px; /* +2px do original 20px */
+  font-size: 23px; /* +2px do original 20px */
   font-weight: 800;
   line-height: 1.4;
   font-family: 'Outfit', sans-serif;
@@ -229,7 +229,7 @@
   display: block;
   margin-top: 5px;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .imageTag {
@@ -240,7 +240,7 @@
   color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 900;
   letter-spacing: 1px;
   box-shadow: 0 10px 20px rgba(255, 159, 67, 0.3);
@@ -280,13 +280,13 @@
 }
 
 .floatingStat strong {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   display: block;
 }
 
 .floatingStat p {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   color: #535c68;
   letter-spacing: 2px;
@@ -311,14 +311,14 @@
   color: var(--text-primary);
   padding: 8px 20px;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 900;
   letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
 .sectionHeader h2 {
-  font-size: 48px;
+  font-size: 49px;
   font-weight: 800;
   margin-bottom: 20px;
 }
@@ -352,13 +352,13 @@
 }
 
 .cardInfo h3 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 800;
   margin-bottom: 15px;
 }
 
 .cardInfo p {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #535c68;
 }
@@ -407,13 +407,13 @@
   color: var(--text-primary);
   padding: 6px 14px;
   border-radius: 8px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 900;
   letter-spacing: 2px;
 }
 
 .pricingCard h3 {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 4px;
   margin-bottom: 30px;
@@ -426,9 +426,9 @@
   margin-bottom: 40px;
 }
 
-.price span { font-size: 18px; font-weight: 600; margin-right: 5px; }
-.price strong { font-size: 56px; font-weight: 900; letter-spacing: -2px; }
-.price small { font-size: 14px; font-weight: 600; opacity: 0.8; }
+.price span { font-size: 19px; font-weight: 600; margin-right: 5px; }
+.price strong { font-size: 57px; font-weight: 900; letter-spacing: -2px; }
+.price small { font-size: 15px; font-weight: 600; opacity: 0.8; }
 
 .planFeatures {
   list-style: none;
@@ -443,7 +443,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -453,7 +453,7 @@
   width: 100%;
   padding: 20px;
   border-radius: 14px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 2px;
   background: white;
@@ -503,11 +503,11 @@
 .testimonialStars {
   color: #ff9f43;
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .testimonialCard p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #2f3640;
   font-weight: 500;
@@ -517,13 +517,13 @@
 
 .testimonialAuthor strong {
   display: block;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   color: #2f3640;
 }
 
 .testimonialAuthor span {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: #535c68;
 }
@@ -552,14 +552,14 @@
 }
 
 .faqItem h4 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   margin-bottom: 12px;
   color: #2f3640;
 }
 
 .faqItem p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #535c68;
   font-weight: 500;
@@ -568,8 +568,8 @@
 /* Footer */
 .footer {
   padding: 10px 0 40px; /* Reduzido mais 50px */
-  background: var(--lp-footer);
-  color: var(--text-primary);
+  background: #2d5a4c;
+  color: white;
 }
 
 .footerGrid {
@@ -587,7 +587,7 @@
 }
 
 .footerBrand p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7); /* Mais brilho */
   max-width: 300px;
@@ -595,7 +595,7 @@
 }
 
 .footerLinks h4 {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 3px;
   margin-bottom: 30px;
@@ -609,14 +609,14 @@
 }
 
 .footerLinks a {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800; /* Mais peso solicitado */
   color: rgba(255, 255, 255, 0.9); /* Quase branco/cinza claro para peso visual */
   transition: color 0.3s;
 }
 
 .footerLinks a:hover {
-  color: var(--text-primary);
+  color: #7ed6df;
 }
 
 .footerBottom {
@@ -625,7 +625,7 @@
 }
 
 .footerBottom p {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.3);
 }

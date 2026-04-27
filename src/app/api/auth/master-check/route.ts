@@ -21,15 +21,29 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ isMaster: false }, { status: 400 });
     }
 
-    // Buscar na tabela master_emails (server-side only)
-    const { data, error } = await supabase
-      .from('master_emails')
-      .select('email')
-      .eq('email', email.trim().toLowerCase())
-      .eq('ativo', true)
-      .single();
+    // 1. Verificar contra o MASTER_EMAIL do .env (prioridade)
+    const envMasterEmail = process.env.MASTER_EMAIL;
+    let isMaster = false;
 
-    if (error || !data) {
+    if (envMasterEmail && email.trim().toLowerCase() === envMasterEmail.trim().toLowerCase()) {
+      isMaster = true;
+    }
+
+    // 2. Buscar na tabela master_emails (fallback/backup)
+    if (!isMaster) {
+      const { data, error } = await supabase
+        .from('master_emails')
+        .select('email')
+        .eq('email', email.trim().toLowerCase())
+        .eq('ativo', true)
+        .single();
+      
+      if (data && !error) {
+        isMaster = true;
+      }
+    }
+
+    if (!isMaster) {
       return NextResponse.json({ isMaster: false });
     }
 

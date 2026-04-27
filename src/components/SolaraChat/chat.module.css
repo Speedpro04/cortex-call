@@ -62,7 +62,7 @@
 .message {
   max-width: 85%;
   padding: 14px 18px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   position: relative;
   animation: fadeIn 0.3s ease-out;
@@ -105,7 +105,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 12px 20px;
-  font-size: 14px;
+  font-size: 15px;
   outline: none;
   transition: all 0.2s;
   color: #1e293b;

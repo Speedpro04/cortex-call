@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Lock, User, Phone, ShieldCheck, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, User, Phone, ShieldCheck, ArrowLeft, Headset } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
@@ -91,10 +91,7 @@ function RegisterForm() {
 
         {/* Logo Section */}
         <div className={styles.logoContainer}>
-          <div className="logoWrapper">
-            <img src="/cortex-logo.png" alt="Cortex Call Logo" className={styles.customLogo} />
-            <span className="signatureText" style={{ color: '#0ea5e9' }}>Cortex Call</span>
-          </div>
+          <Headset size={140} color="#2d5a4c" strokeWidth={1.5} />
         </div>
 
         <div className={styles.headerText}>
