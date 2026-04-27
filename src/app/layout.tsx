@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from 'react-hot-toast';
+import ErrorBoundary from '@/components/ErrorBoundary/ErrorBoundary';
 
 export const metadata: Metadata = {
 title: "Cortex Call | Inteligência Artificial para Clínicas Médicas",
@@ -16,7 +17,7 @@ title: "Cortex Call | Inteligência Artificial para Clínicas Médicas",
     google: "K22rAHJbs_oDdYMvGFEFRuThozatrhP5CnW-9iDATcs",
   },
   icons: {
-    icon: '/icon.svg',
+    icon: '/icon.png',
   },
 };
 
@@ -28,8 +29,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <Toaster position="top-right" />
-        {children}
+        <ErrorBoundary>
+          <Toaster position="top-right" />
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );

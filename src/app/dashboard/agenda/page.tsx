@@ -27,22 +27,36 @@ export default function AgendaPage() {
     setIsLoading(true);
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
+      let clinicId = null;
 
-      // 1. Buscar Clínica
-      const { data: clinic } = await supabase
-        .from('clinics')
-        .select('id')
-        .eq('user_id', user.id)
-        .single();
+      if (user) {
+        // 1. Buscar Clínica do usuário
+        const { data: clinic } = await supabase
+          .from('clinics')
+          .select('id')
+          .eq('user_id', user.id)
+          .single();
+        clinicId = clinic?.id;
+      } else {
+        // Master Bypass: pega a primeira clínica para visualização
+        const { data: clinic } = await supabase
+          .from('clinics')
+          .select('id')
+          .limit(1)
+          .single();
+        clinicId = clinic?.id;
+      }
 
-      if (!clinic) return;
+      if (!clinicId) {
+        setIsLoading(false);
+        return;
+      }
 
       // 2. Buscar Agendamentos
       const { data: apps } = await supabase
         .from('appointments')
         .select('*, patients(nome_completo), specialists(nome)')
-        .eq('clinic_id', clinic.id)
+        .eq('clinic_id', clinicId)
         .order('appointment_time', { ascending: true });
 
       // 3. Buscar Especialistas
@@ -75,10 +89,18 @@ export default function AgendaPage() {
     setIsSaving(true);
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      const { data: clinic } = await supabase.from('clinics').select('id').eq('user_id', user?.id).single();
+      let clinicId = null;
+
+      if (user) {
+        const { data: clinic } = await supabase.from('clinics').select('id').eq('user_id', user.id).single();
+        clinicId = clinic?.id;
+      } else {
+        const { data: clinic } = await supabase.from('clinics').select('id').limit(1).single();
+        clinicId = clinic?.id;
+      }
 
       const { error } = await supabase.from('appointments').insert({
-        clinic_id: clinic?.id,
+        clinic_id: clinicId,
         patient_id: form.patient_id || null, // No mundo real, selecionaria um paciente
         specialist_id: form.specialist_id || null,
         appointment_time: new Date().toISOString().split('T')[0] + 'T' + form.time + ':00Z',
