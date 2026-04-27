@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import styles from './register.module.css';
 
-export default function RegisterPage() {
+function RegisterForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const planSlug = searchParams.get('plan') || 'plan-2-especialistas';
@@ -172,6 +172,14 @@ export default function RegisterPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <React.Suspense fallback={<div className={styles.container}><div className={styles.loginCard}><p style={{color: 'white', textAlign: 'center'}}>Carregando...</p></div></div>}>
+      <RegisterForm />
+    </React.Suspense>
   );
 }
 

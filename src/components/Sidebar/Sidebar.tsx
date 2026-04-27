@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { 
@@ -17,12 +17,51 @@ import {
   BrainCircuit,
   LogOut
 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 import Logo from '../Logo/Logo';
 import styles from './sidebar.module.css';
 
 export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
+  const [userName, setUserName] = useState('');
+  const [userRole, setUserRole] = useState('GESTOR');
+
+  useEffect(() => {
+    async function loadUser() {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const name = user.user_metadata?.full_name 
+            || user.user_metadata?.clinic_name 
+            || user.email?.split('@')[0] 
+            || 'Usuário';
+          setUserName(name.toUpperCase());
+
+          // Verificar se é master
+          const masterEmail = process.env.NEXT_PUBLIC_MASTER_EMAIL || 'kd3online@gmail.com';
+          if (user.email === masterEmail) {
+            setUserRole('SUPER ADMIN');
+          }
+        } else {
+          // Tentar cookie master (para bypass)
+          setUserName('ADMIN');
+          setUserRole('MASTER');
+        }
+      } catch {
+        setUserName('ADMIN');
+      }
+    }
+    loadUser();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    // Limpar cookies master
+    document.cookie = 'master-token=; path=/; max-age=0';
+    document.cookie = 'master-email=; path=/; max-age=0';
+    router.push('/login');
+  };
 
   const menuItems = [
     { id: 'dashboard', icon: LayoutDashboard, label: 'PAINEL', path: '/dashboard' },
@@ -61,13 +100,13 @@ export default function Sidebar() {
 
       <div className={styles.bottomSection}>
         <div className={styles.userModule}>
-          <div className={styles.avatar}>H</div>
+          <div className={styles.avatar}>{userName?.charAt(0) || 'U'}</div>
           <div className={styles.userInfo}>
-            <strong>HENRIQUE</strong>
-            <span>SUPER ADMIN</span>
+            <strong>{userName || 'CARREGANDO...'}</strong>
+            <span>{userRole}</span>
           </div>
         </div>
-        <button className={styles.logoutBtn} onClick={() => router.push('/login')}>
+        <button className={styles.logoutBtn} onClick={handleLogout}>
           <LogOut size={18} />
           <span>ENCERRAR SESSÃO</span>
         </button>

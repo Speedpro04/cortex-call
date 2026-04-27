@@ -46,11 +46,41 @@ export async function GET(request: Request) {
       };
     }));
 
+    // Calcular stats reais
+    const { count: totalPatients } = await supabase
+      .from('patients')
+      .select('*', { count: 'exact', head: true })
+      .match(clinic_id ? { clinic_id } : {});
+
+    const { count: riskPatients } = await supabase
+      .from('patients')
+      .select('*', { count: 'exact', head: true })
+      .in('temperatura_lead', ['morno', 'frio', 'perdido'])
+      .match(clinic_id ? { clinic_id } : {});
+
+    const abandonRate = totalPatients && totalPatients > 0
+      ? ((riskPatients || 0) / totalPatients * 100).toFixed(1)
+      : '0.0';
+
+    const startOfMonth = new Date();
+    startOfMonth.setDate(1);
+    startOfMonth.setHours(0, 0, 0, 0);
+
+    const { data: campaigns } = await supabase
+      .from('campaigns')
+      .select('enviados_count, convertidos_count')
+      .gte('created_at', startOfMonth.toISOString())
+      .match(clinic_id ? { clinic_id } : {});
+
+    const totalSent = campaigns?.reduce((sum, c) => sum + (c.enviados_count || 0), 0) || 0;
+    const totalRecovered = campaigns?.reduce((sum, c) => sum + (c.convertidos_count || 0), 0) || 0;
+    const estimatedRevenue = totalRecovered * 200; // R$200 média por consulta
+
     const stats = [
-      { label: 'TAXA DE ABANDONO', value: '18.4%', color: 'orange' },
-      { label: 'CONVITES ENVIADOS', value: '142', color: 'blue' },
-      { label: 'PACIENTES RECUPERADOS', value: '24', color: 'green' },
-      { label: 'FATURAMENTO RECUPERADO', value: 'R$ 12.480', color: 'purple' },
+      { label: 'TAXA DE ABANDONO', value: `${abandonRate}%`, color: 'orange' },
+      { label: 'CONVITES ENVIADOS', value: totalSent.toString(), color: 'blue' },
+      { label: 'PACIENTES RECUPERADOS', value: totalRecovered.toString(), color: 'green' },
+      { label: 'FATURAMENTO RECUPERADO', value: `R$ ${estimatedRevenue.toLocaleString('pt-BR')}`, color: 'purple' },
     ];
 
     return NextResponse.json({ success: true, patients: processedPatients, stats });

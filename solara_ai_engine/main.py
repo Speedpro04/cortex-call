@@ -657,7 +657,7 @@ async def chat_with_solara(message: ChatMessage):
         # Buscar dados do paciente se telefone existir
         patient_data = None
         if message.phone:
-            patient = supabase.table("patients").select("*").eq("telefone", message.phone.replace(/\D/g, "")).execute()
+            patient = supabase.table("patients").select("*").eq("telefone", re.sub(r'\D', '', message.phone)).execute()
             if patient.data:
                 patient_data = patient.data[0]
                 message.patient_name = patient_data.get("nome_completo")

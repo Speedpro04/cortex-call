@@ -26,14 +26,21 @@ export default function LoginPage() {
     setLoading(true);
     setError(null);
 
-    // Master Bypass para os seus e-mails de teste
-    const masterEmails = ['yachtsatlas@gmail.com', 'kd3online@gmail.com', 'axushub50@gmail.com'];
-    if (masterEmails.includes(email.trim().toLowerCase())) {
-      document.cookie = "master-bypass=true; path=/; max-age=86400"; // Salva o passe livre por 24 horas
-      setTimeout(() => {
+    // Master Bypass — validação segura via API server-side
+    try {
+      const masterRes = await fetch('/api/auth/master-check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim().toLowerCase() }),
+      });
+      const masterData = await masterRes.json();
+      if (masterData.isMaster) {
         window.location.href = '/dashboard';
-      }, 500);
-      return;
+        return;
+      }
+    } catch (masterErr) {
+      // Se falhar, continua com login normal
+      console.warn('Master check unavailable, proceeding with normal login');
     }
 
     try {
