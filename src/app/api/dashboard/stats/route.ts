@@ -13,6 +13,13 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const clinic_id = searchParams.get('clinic_id');
 
+    // Inicializar datas para filtros
+    const now = new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const today = now.toISOString().split('T')[0];
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(now.getMonth() - 6);
+
     // Executar chamadas em paralelo para performance
     const [
       patientsRes,
