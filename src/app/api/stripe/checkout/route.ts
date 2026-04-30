@@ -36,9 +36,9 @@ export async function POST(request: NextRequest) {
     // Define o Price ID do Stripe com base no plano (fallback para variaveis de ambiente caso não esteja no banco)
     let stripePriceId = plan.stripe_price_id;
     if (!stripePriceId) {
-      if (plan_slug === 'plan-2-especialistas') stripePriceId = process.env.STRIPE_PRICE_ID_2_ESP;
-      else if (plan_slug === 'plan-3-5-especialistas') stripePriceId = process.env.STRIPE_PRICE_ID_3_5_ESP;
-      else if (plan_slug === 'plan-5-8-especialistas') stripePriceId = process.env.STRIPE_PRICE_ID_5_8_ESP;
+      if (plan_slug === 'plan-2-especialistas' || plan_slug === 'plan-2-medicos') stripePriceId = process.env.STRIPE_PRICE_ID_2_ESP;
+      else if (plan_slug === 'plan-3-5-especialistas' || plan_slug === 'plan-3-5-medicos') stripePriceId = process.env.STRIPE_PRICE_ID_3_5_ESP;
+      else if (plan_slug === 'plan-5-8-especialistas' || plan_slug === 'plan-5-8-medicos') stripePriceId = process.env.STRIPE_PRICE_ID_5_8_ESP;
     }
 
     if (!stripePriceId) {

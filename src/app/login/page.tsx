@@ -182,7 +182,7 @@ export default function LoginPage() {
                   Esqueci minha senha
                 </button>
                 <div className={styles.divider}></div>
-                <button type="button" onClick={() => setView('register')} className={styles.link}>
+                <button type="button" onClick={() => router.push('/#precos')} className={styles.link}>
                   Solicitar Cadastro
                 </button>
               </div>
