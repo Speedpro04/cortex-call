@@ -58,21 +58,21 @@ INSERT INTO public.plans (nome, slug, preco_centavos, max_especialistas, feature
 (
     '2 Especialistas',
     'plan-2-especialistas',
-    14700,
+    19700,
     2,
     '["Até 2 Especialistas", "Solara Connect IA", "Otimização de Agenda", "Suporte WhatsApp"]'::jsonb
 ),
 (
     '3 a 5 Especialistas',
     'plan-3-5-especialistas',
-    25700,
+    39700,
     5,
     '["Até 5 Especialistas", "Solara Connect Pro", "WhatsApp Odonto Ilimitado", "Suporte Prioritário"]'::jsonb
 ),
 (
     '5 a 8 Especialistas',
     'plan-5-8-especialistas',
-    36700,
+    59700,
     8,
     '["Até 8 Especialistas", "Solara Connect Elite", "Gestor de Contas", "Integração Customizada"]'::jsonb
 );

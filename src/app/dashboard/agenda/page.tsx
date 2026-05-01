@@ -63,7 +63,7 @@ export default function AgendaPage() {
       const { data: specs } = await supabase
         .from('specialists')
         .select('*')
-        .eq('clinic_id', clinic.id)
+        .eq('clinic_id', clinicId)
         .eq('ativo', true);
 
       setAppointments(apps || []);

@@ -43,9 +43,9 @@ ALTER TABLE public.plans ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "plans_public_read" ON public.plans FOR SELECT USING (true);
 
 INSERT INTO public.plans (nome, slug, preco_centavos, max_especialistas, features) VALUES
-    ('2 M��dicos', 'plan-2-medicos', 14700, 2, '["Até 2 Médicos", "Cortex Call IA", "Otimização de Agenda", "Suporte WhatsApp"]'::jsonb),
-    ('3 a 5 Médicos', 'plan-3-5-medicos', 25700, 5, '["Até 5 Médicos", "Cortex Call Pro", "WhatsApp Ilimitado", "Suporte Prioritário"]'::jsonb),
-    ('5 a 8 Médicos', 'plan-5-8-medicos', 36700, 8, '["Até 8 Médicos", "Cortex Call Elite", "Gestor de Contas", "Integração Customizada"]'::jsonb);
+    ('2 Médicos', 'plan-2-medicos', 19700, 2, '["Até 2 Médicos", "Cortex Call IA", "Otimização de Agenda", "Suporte WhatsApp"]'::jsonb),
+    ('3 a 5 Médicos', 'plan-3-5-medicos', 39700, 5, '["Até 5 Médicos", "Cortex Call Pro", "WhatsApp Ilimitado", "Suporte Prioritário"]'::jsonb),
+    ('5 a 8 Médicos', 'plan-5-8-medicos', 59700, 8, '["Até 8 Médicos", "Cortex Call Elite", "Gestor de Contas", "Integração Customizada"]'::jsonb);
 
 -- ==========================================
 -- 3. SUBSCRIPTIONS (ASSINATURAS)
