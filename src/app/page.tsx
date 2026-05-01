@@ -204,9 +204,9 @@ export default function LandingPage() {
 
           <div className={styles.pricingGrid}>
             {[
-              { name: '2 ESPECIALISTAS', slug: 'plan-2-especialistas', price: '147', features: ['Até 2 Especialistas', 'Cortex Call IA', 'Otimização de Agenda', 'Suporte WhatsApp'], color: 'blue' },
-              { name: '3 A 5 ESPECIALISTAS', slug: 'plan-3-5-especialistas', price: '257', features: ['Até 5 Especialistas', 'Cortex Call Pro', 'WhatsApp Cortex Ilimitado', 'Suporte Prioritário'], hot: true, color: 'teal' },
-              { name: '5 A 8 ESPECIALISTAS', slug: 'plan-5-8-especialistas', price: '367', features: ['Até 8 Especialistas', 'Cortex Call Elite', 'Gestor de Contas', 'Integração Customizada'], color: 'charcoal' }
+              { name: '2 ESPECIALISTAS', slug: 'plan-2-especialistas', price: '197', features: ['Até 2 Especialistas', 'Cortex Call IA', 'Otimização de Agenda', 'Suporte WhatsApp'], color: 'blue' },
+              { name: '3 A 5 ESPECIALISTAS', slug: 'plan-3-5-especialistas', price: '397', features: ['Até 5 Especialistas', 'Cortex Call Pro', 'WhatsApp Cortex Ilimitado', 'Suporte Prioritário'], hot: true, color: 'teal' },
+              { name: '5 A 8 ESPECIALISTAS', slug: 'plan-5-8-especialistas', price: '597', features: ['Até 8 Especialistas', 'Cortex Call Elite', 'Gestor de Contas', 'Integração Customizada'], color: 'charcoal' }
             ].map((plan, i) => (
               <div key={i} className={`${styles.pricingCard} ${plan.hot ? styles.hotPlan : ''}`}>
                 {plan.hot && <span className={styles.hotBadge}>MAIS POPULAR</span>}
