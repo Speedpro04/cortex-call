@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 export const dynamic = 'force-dynamic';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2026-04-22.dahlia' as any, // Update to the latest or appropriate version
+  apiVersion: '2024-11-20.acacia',
 });
 
 const supabase = createClient(
